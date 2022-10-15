@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import Grid from "./components/Grid";
 
@@ -11,6 +11,7 @@ function App() {
     const getData = async () => {
       const res = await axios.get(api);
       console.log(res.data);
+      setCriptoList(res.data)
     };
 
 
@@ -19,6 +20,7 @@ function App() {
       getData();
     }, []);
 
+    const [criptoList, setCriptoList] = useState([])
 
 
   return (
