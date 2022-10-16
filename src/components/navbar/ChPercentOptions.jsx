@@ -1,22 +1,22 @@
 import { useDispatch } from "react-redux";
-import { editCurrency } from "../../features/currencySlice";
+import { editChPercent } from "../../features/chPercentSlice";
 
-const CurrencyOptions = () => {
-  // *TIPOS DE CURRENCY
-  const types = ["usd", "btc", "eur"];
+const ChPercentOptions = () => {
+  // *TIPOS DE PERCENTS%
+  const types = ["1h", "24h", "7d", "14d", "30d", "1y"];
 
   // *USE DISPATCH
   const dispatch = useDispatch();
 
   // *HANDLECLICK
   const handleClick = (e) => {
-    dispatch(editCurrency(e.target.innerText));
-    // console.log("handleClick:", e.target.innerText);
+    dispatch(editChPercent(e.target.innerHTML));
+    console.log("handleClick:", e.target.innerText);
   };
 
   return (
     <>
-      <div>CurrencyOptions</div>
+      <div>Percent Options</div>
       <tbody>
         {types.map((type, index) => (
           <tr key={index}>
@@ -28,4 +28,4 @@ const CurrencyOptions = () => {
   );
 };
 
-export default CurrencyOptions;
+export default ChPercentOptions;

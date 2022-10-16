@@ -1,22 +1,22 @@
+import { editSort } from "../../features/sortSlice";
 import { useDispatch } from "react-redux";
-import { editCurrency } from "../../features/currencySlice";
 
-const CurrencyOptions = () => {
-  // *TIPOS DE CURRENCY
-  const types = ["usd", "btc", "eur"];
+const SortOptions = () => {
+  // *TIPOs DE SORTS
+  const types = ["market_cap_desc", "market_cap_asc", "volume_asc"];
 
   // *USE DISPATCH
   const dispatch = useDispatch();
 
   // *HANDLECLICK
   const handleClick = (e) => {
-    dispatch(editCurrency(e.target.innerText));
-    // console.log("handleClick:", e.target.innerText);
+    dispatch(editSort(e.target.innerHTML));
+    // console.log("handleclick:", e.target.innerHTML);
   };
 
   return (
     <>
-      <div>CurrencyOptions</div>
+      <div>Sort</div>
       <tbody>
         {types.map((type, index) => (
           <tr key={index}>
@@ -28,4 +28,4 @@ const CurrencyOptions = () => {
   );
 };
 
-export default CurrencyOptions;
+export default SortOptions;

@@ -1,9 +1,15 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
+// *GRID LISTA DE CRIPTO
 const Grid = ({ criptoList }) => {
-  console.log("Lista", criptoList);
+  console.log("criptolist", criptoList);
 
-  const changePercentage = `price_change_percentage_1h_in_currency`
+  //* TRAIGO EL "chPercent" DEL STORE
+  const chPercent = useSelector((state) => state.chPercent);
+
+  //* ARMO EL TITULO DE "price_change" PARA LUEGO MAPEARLO
+  const percent = `price_change_percentage_${chPercent}_in_currency`;
 
   return (
     <>
@@ -14,7 +20,7 @@ const Grid = ({ criptoList }) => {
             <td>{list.symbol}</td>
             <td>{list.name}</td>
             <td>{list.current_price}</td>
-            <td>{list.name}</td>
+            <td>{Math.round(list[percent]*100)/100}%</td>
           </tr>
         ))}
       </tbody>
