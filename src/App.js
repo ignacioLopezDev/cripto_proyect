@@ -49,7 +49,7 @@ function App() {
           className="mt-60px form-control text-light mt-4 border-0 text-center"
         />
         <Routes>
-          <Route path="/" element={<Grid criptoList={criptoList} />} />
+          <Route path="/cripto_proyect" element={<Grid criptoList={criptoList} />} />
         </Routes>
       </BrowserRouter>
     </div>
