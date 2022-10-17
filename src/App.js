@@ -7,17 +7,18 @@ import Grid from "./components/Grid";
 import CurrencyOptions from "./components/navbar/CurrencyOptions";
 import SortOptions from "./components/navbar/SortOptions";
 import ChPercentOptions from "./components/navbar/ChPercentOptions";
+import { Navbar } from "./components/navbar/Navbar";
 
 function App() {
   // *API PROPIETIES
   const currency = useSelector((state) => state.currency);
   // console.log('currency:', currency)
 
-  const sort = useSelector((state) => state.sort )
+  const sort = useSelector((state) => state.sort);
   // console.log('sort:', sort)
-  
+
   const chPercent = useSelector((state) => state.chPercent);
-  console.log('chPercent:', chPercent)
+  console.log("chPercent:", chPercent);
 
   // * API ROUTE
   const api = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=${sort}&per_page=25&page=1&sparkline=false&price_change_percentage=${chPercent}`;
@@ -39,15 +40,14 @@ function App() {
   return (
     <div className="container">
       <BrowserRouter>
-        <div className="text-center">Cripto App</div>
-        <tr>
-          <td> <CurrencyOptions /> </td>
-          <br />
-          <td> <SortOptions /> </td>
-          <br />
-          <td> <ChPercentOptions/> </td>
-        </tr>
-        <input type="text" placeholder="Search a Coin" className="form-control text-light mt-4 border-0 text-center" />
+        <div className="criptoApp fixed-top">Cripto App</div>
+          <Navbar />
+
+        <input
+          type="text"
+          placeholder="Search a Coin"
+          className="mt-60px form-control text-light mt-4 border-0 text-center"
+        />
         <Routes>
           <Route path="/" element={<Grid criptoList={criptoList} />} />
         </Routes>

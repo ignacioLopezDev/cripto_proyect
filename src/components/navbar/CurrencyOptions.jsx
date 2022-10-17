@@ -16,14 +16,9 @@ const CurrencyOptions = () => {
 
   return (
     <>
-      <div>CurrencyOptions</div>
-      <tbody>
         {types.map((type, index) => (
-          <tr key={index}>
-            <td onClick={handleClick}>{type}</td>
-          </tr>
+            <li key={index} onClick={handleClick} className="dropdown-item">{type}</li>
         ))}
-      </tbody>
     </>
   );
 };
