@@ -37,9 +37,9 @@ function App() {
   const [criptoList, setCriptoList] = useState([]);
 
   return (
-    <div>
+    <div className="container">
       <BrowserRouter>
-        <div>Cripto App</div>
+        <div className="text-center">Cripto App</div>
         <tr>
           <td> <CurrencyOptions /> </td>
           <br />
@@ -47,6 +47,7 @@ function App() {
           <br />
           <td> <ChPercentOptions/> </td>
         </tr>
+        <input type="text" placeholder="Search a Coin" className="form-control text-light mt-4 border-0 text-center" />
         <Routes>
           <Route path="/" element={<Grid criptoList={criptoList} />} />
         </Routes>
