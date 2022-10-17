@@ -9,7 +9,7 @@ package.json> eb "scripts"
     "deploy": "gh-pages -d build"
 
 
-git add-
+git add .
 git commit -m ""
 git push origin main
 
