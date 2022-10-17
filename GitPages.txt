@@ -1,7 +1,7 @@
 npm run build
 
 package.json> abajo de "private"
-    "homepage":"https://github.com/ignacioLopezDev/cripto_proyect",
+    "homepage":"https://ignacioLopezDev.github.io/cripto_proyect",
 
 npm i gh-pages
 
