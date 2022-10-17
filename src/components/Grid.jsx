@@ -2,8 +2,9 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 // *GRID LISTA DE CRIPTO
-const Grid = ({ criptoList }) => {
-  console.log("criptolist", criptoList);
+const Grid = ({ criptoList, search }) => {
+  // console.log("criptolist", criptoList);
+
 
   //* TRAIGO EL "chPercent" DEL STORE
   const chPercent = useSelector((state) => state.chPercent);
@@ -12,39 +13,44 @@ const Grid = ({ criptoList }) => {
   const percent = `price_change_percentage_${chPercent}_in_currency`;
 
   // *TITLES
-  const titles = ["#", "Coin", "Price", "%Avarage"];
+  const titles = ["#","", "Coin", "Price", "%Avarage"];
+
+  // *SEARCH FUNCTION
+  const filterCoins = criptoList.filter(coin => coin.name.toLowerCase().includes(search.toLowerCase()) || coin.symbol.toLowerCase().includes(search.toLowerCase()))
+
 
   return (
     <div className="row">
-      <table className="table table-dark mt-4 table-hover">
+      <table className="table table-dark mt-4 table-hover ">
         <thead>
           <tr>
-            {titles.map((title) => (
-              <td>{title}</td>
+            {titles.map((title, index) => (
+              <td key={index}>{title}</td>
             ))}
           </tr>
         </thead>
-        <tbody>
-          {criptoList.map((list, index) => (
-            <tr key={list.id}>
+        <tbody id="tableBody">
+          {filterCoins.map((coin, index) => (
+            <tr key={index}>
               <td className="text-muted">{index + 1}</td>
               <td>
                 <img
-                  src={list.image}
-                  alt={list.name}
+                  src={coin.image}
+                  alt={coin.name}
                   style={{ width: "27px" }}
-                  className="img-fluid me-3"
                 />
-                <span>{list.name}</span>
+                </td>
+                <td className="text-nowrap">
+                <span>{coin.name}</span>
                 <span className="text-muted text-uppercase ms-3">
-                  {list.symbol}
+                  {coin.symbol}
                 </span>
               </td>
-              <td>{list.current_price}</td>
-              <td
-                className={list[percent] > 0 ? "text-success" : "text-danger"}
+              <td>{coin.current_price}</td>
+              <td 
+                className={coin[percent] > 0 ? "text-success text-center" : "text-danger text-center"}
               >
-                {Math.round(list[percent] * 100) / 100}%
+                {Math.round(coin[percent] * 100) / 100}%
               </td>
             </tr>
           ))}

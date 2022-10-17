@@ -30,8 +30,6 @@ code {
   
 }
 
-
-
 .navbar a {
   color: lightgray;  
 }
@@ -41,4 +39,9 @@ code {
   padding: 0px 10px;
   height: 40px;
   background-color: #141313;
+}
+
+#tableBody{
+  /* white-space: nowrap; */
+  /* text-overflow: ellipsis; */
 }

@@ -8,6 +8,7 @@ import CurrencyOptions from "./components/navbar/CurrencyOptions";
 import SortOptions from "./components/navbar/SortOptions";
 import ChPercentOptions from "./components/navbar/ChPercentOptions";
 import { Navbar } from "./components/navbar/Navbar";
+import Searcher from "./components/Searcher";
 
 function App() {
   // *API PROPIETIES
@@ -18,10 +19,10 @@ function App() {
   // console.log('sort:', sort)
 
   const chPercent = useSelector((state) => state.chPercent);
-  console.log("chPercent:", chPercent);
+  // console.log("chPercent:", chPercent);
 
   // * API ROUTE
-  const api = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=${sort}&per_page=25&page=1&sparkline=false&price_change_percentage=${chPercent}`;
+  const api = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=${sort}&per_page=50&page=1&sparkline=false&price_change_percentage=${chPercent}`;
 
   // * PEDIDO AXIOS A COINGECKO API
   const getData = async () => {
@@ -34,6 +35,9 @@ function App() {
     getData();
   }, [currency, sort, chPercent]);
 
+  // * USESTATE SEARCH
+  const [search, setSearch] = useState("");
+
   // USESTATE - CAPTURA API EN CRIPTOLIST
   const [criptoList, setCriptoList] = useState([]);
 
@@ -41,15 +45,14 @@ function App() {
     <div className="container">
       <BrowserRouter>
         <div className="criptoApp fixed-top">Cripto App</div>
-          <Navbar />
+        <Navbar />
+        <Searcher setSearch={setSearch} />
 
-        <input
-          type="text"
-          placeholder="Search a Coin"
-          className="mt-60px form-control text-light mt-4 border-0 text-center"
-        />
         <Routes>
-          <Route path="/cripto_proyect" element={<Grid criptoList={criptoList} />} />
+          <Route
+            path="/cripto_proyect"
+            element={<Grid criptoList={criptoList} search={search} />}
+          />
         </Routes>
       </BrowserRouter>
     </div>

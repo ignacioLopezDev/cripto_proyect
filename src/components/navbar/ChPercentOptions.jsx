@@ -11,7 +11,7 @@ const ChPercentOptions = () => {
   // *HANDLECLICK
   const handleClick = (e) => {
     dispatch(editChPercent(e.target.innerHTML));
-    console.log("handleClick:", e.target.innerText);
+    // console.log("handleClick:", e.target.innerText);
   };
 
   return (
