@@ -21,18 +21,18 @@ const Grid = ({ criptoList, search }) => {
 
   return (
     <div className="row">
-      <table className="table table-dark mt-4 table-hover ">
+      <table className="table table-dark mt-4 table-hover  ">
         <thead>
           <tr>
             {titles.map((title, index) => (
-              <td key={index}>{title}</td>
+              <th key={index}>{title}</th>
             ))}
           </tr>
         </thead>
-        <tbody id="tableBody">
+        <tbody>
           {filterCoins.map((coin, index) => (
             <tr key={index}>
-              <td className="text-muted">{index + 1}</td>
+              <td className="text-muted pe-1 text-center">{index + 1}</td>
               <td>
                 <img
                   src={coin.image}
@@ -40,7 +40,7 @@ const Grid = ({ criptoList, search }) => {
                   style={{ width: "27px" }}
                 />
                 </td>
-                <td className="text-nowrap">
+                <td >
                 <span>{coin.name}</span>
                 <span className="text-muted text-uppercase ms-3">
                   {coin.symbol}

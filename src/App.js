@@ -4,9 +4,6 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 
 import Grid from "./components/Grid";
-import CurrencyOptions from "./components/navbar/CurrencyOptions";
-import SortOptions from "./components/navbar/SortOptions";
-import ChPercentOptions from "./components/navbar/ChPercentOptions";
 import { Navbar } from "./components/navbar/Navbar";
 import Searcher from "./components/Searcher";
 
