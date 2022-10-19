@@ -27,6 +27,8 @@ function App() {
     setCriptoList(res.data);
   };
 
+
+
   // * USEEFFECT - RENDERIZA API
   useEffect(() => {
     getData();
