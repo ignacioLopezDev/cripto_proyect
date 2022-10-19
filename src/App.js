@@ -10,7 +10,7 @@ import Searcher from "./components/Searcher";
 function App() {
   // *API PROPIETIES
   const currency = useSelector((state) => state.currency);
-  // console.log('currency:', currency)
+  console.log("currency:", currency);
 
   const sort = useSelector((state) => state.sort);
   // console.log('sort:', sort)
@@ -25,13 +25,17 @@ function App() {
   const getData = async () => {
     const res = await axios.get(api);
     setCriptoList(res.data);
+    console.log("Ejecute getData");
+    console.log("api", api);
   };
 
-
-
-  // * USEEFFECT - RENDERIZA API
+  // * USEEFFECT - RENDERIZA API 
   useEffect(() => {
+    // renderiza al instante
     getData();
+    // renderiza en intervalos, resetea cuando cambia algo
+    const interval = setInterval(getData, 30000);
+    return () => clearInterval(interval);
   }, [currency, sort, chPercent]);
 
   // * USESTATE SEARCH
