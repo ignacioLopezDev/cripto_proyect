@@ -2,10 +2,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
-import Grid from "./components/Grid";
 import { Navbar } from "./components/navbar/Navbar";
+import Grid from "./components/Grid";
 import Searcher from "./components/Searcher";
+import Coin from "./components/Coin";
 
 function App() {
   // *API PROPIETIES
@@ -44,10 +46,12 @@ function App() {
   // USESTATE - CAPTURA API EN CRIPTOLIST
   const [criptoList, setCriptoList] = useState([]);
 
+
+
   return (
     <div className="container">
       <BrowserRouter>
-        <div className="criptoApp fixed-top">Cripto App</div>
+        <Link to="/cripto_proyect" className="criptoApp fixed-top">Cripto App</Link>
         <Navbar />
         <Searcher setSearch={setSearch} />
 
@@ -56,6 +60,12 @@ function App() {
             path="/cripto_proyect"
             element={<Grid criptoList={criptoList} search={search} />}
           />
+          <Route
+          path="/cripto_proyect/coin/:id"
+          element={<Coin/>}
+          >
+          
+          </Route>
         </Routes>
       </BrowserRouter>
     </div>
