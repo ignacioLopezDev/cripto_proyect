@@ -36,8 +36,8 @@ function App() {
     // renderiza al instante
     getData();
     // renderiza en intervalos, resetea cuando cambia algo
-    const interval = setInterval(getData, 30000);
-    return () => clearInterval(interval);
+    // const interval = setInterval(getData, 30000);
+    // return () => clearInterval(interval);
   }, [currency, sort, chPercent]);
 
   // * USESTATE SEARCH

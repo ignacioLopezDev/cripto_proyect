@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Graph from "./Graph";
 
 const Coin = () => {
   // USESTATE GUARDO COIN
@@ -50,8 +51,9 @@ const Coin = () => {
       <div>%{coin.market_data.price_change_percentage_60d}</div>
       <div>%{coin.market_data.price_change_percentage_200d}</div>
       <div>%{coin.market_data.price_change_percentage_1y}</div>
-      
-      <div>{coin.name}</div>
+      <div><Graph /></div>
+
+
       <div dangerouslySetInnerHTML={{ __html: coin.description.en }}></div>
       </>)}
 
