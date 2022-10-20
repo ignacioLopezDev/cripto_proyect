@@ -4,7 +4,13 @@ import { useParams } from "react-router-dom";
 
 const Coin = () => {
   // USESTATE GUARDO COIN
-  const [coin, setCoin] = useState("");
+  const [coin, setCoin] = useState({
+    symbol: "",
+    name: "",
+    coingecko_score: "",
+    image: { small: "" },
+    description: { en: "" },
+  });
 
   // *USEPARAMS
   const params = useParams();
@@ -18,20 +24,24 @@ const Coin = () => {
 
   const dataCoin = async () => {
     const res = await axios.get(apiCoin);
+    console.log("datacoin", res.data);
     setCoin(res.data);
   };
 
   // USE-EFFECT - RENDERIZAR API-COIN
   useEffect(() => {
     dataCoin();
-  }, []);
+  }, [id]);
 
-  console.log("mememe", coin);
+  console.log("UseState Coin:", coin);
   return (
     <>
-      <div>NACHO</div>
+      <div>{coin.symbol}</div>
+      <img src={coin.image.small} alt="coin" />
       <div>{coin.name}</div>
+      <div>{coin.coingecko_score}</div>
       <div>{coin.name}</div>
+      <div>{coin.description.en}</div>
     </>
   );
 };
