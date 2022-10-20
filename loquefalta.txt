@@ -1,0 +1,6 @@
+monedas con formato coma punto 19,000.39
+useParams espacios en %20 reemplazados por -
+recargar pagina con cargador
+el useState de /coin/:id que sea por state de redux
+que la tabla sea responsive
+que la tabla tenga 3 espacios en la coin

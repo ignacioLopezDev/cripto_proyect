@@ -10,6 +10,10 @@ const Coin = () => {
     coingecko_score: "",
     image: { small: "" },
     description: { en: "" },
+    market_data: {
+      current_price: { usd: "", btc: "" },
+      market_cap: { usd: "" },
+    },
   });
 
   // *USEPARAMS
@@ -40,8 +44,13 @@ const Coin = () => {
       <img src={coin.image.small} alt="coin" />
       <div>{coin.name}</div>
       <div>{coin.coingecko_score}</div>
+      <div>{coin.market_data.current_price.usd}</div>
+      <div>{coin.market_data.current_price.btc}</div>
+      <div>{coin.market_data.market_cap.usd}</div>
+      <div>{coin.market_data.market_cap.usd}</div>
       <div>{coin.name}</div>
-      <div>{coin.description.en}</div>
+      <div>{coin.name}</div>
+      <div dangerouslySetInnerHTML={{ __html: coin.description.en }}></div>
     </>
   );
 };
@@ -49,21 +58,13 @@ const Coin = () => {
 export default Coin;
 
 /* 
-"symbol": "btc",
-"id": "bitcoin",
- "image": "https:/
 
- /coins/{id}
 
-"market_data": {
-    "current_price": {
-      "bnb": 70577,
 
-"description": {
-    "en": "Bitcoin is the first}
 
-"market_cap": {
-      "aed": 1353825777006,
+
+
+
 Market Cap Rank
 
   "price_change_24h": 60.003,

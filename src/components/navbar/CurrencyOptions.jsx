@@ -3,7 +3,7 @@ import { editCurrency } from "../../features/currencySlice";
 
 const CurrencyOptions = () => {
   // *TIPOS DE CURRENCY
-  const types = ["usd", "btc", "eur"];
+  const types = ["usd", "btc", "eur", "bnb"];
 
   // *USE DISPATCH
   const dispatch = useDispatch();
