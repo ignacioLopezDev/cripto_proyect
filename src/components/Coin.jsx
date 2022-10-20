@@ -4,21 +4,13 @@ import { useParams } from "react-router-dom";
 
 const Coin = () => {
   // USESTATE GUARDO COIN
-  const [coin, setCoin] = useState({
-    symbol: "",
-    name: "",
-    coingecko_score: "",
-    image: { small: "" },
-    description: { en: "" },
-    market_data: {
-      current_price: { usd: "", btc: "" },
-      market_cap: { usd: "" },
-    },
-  });
+  const [coin, setCoin] = useState("")
 
   // *USEPARAMS
   const params = useParams();
-  const id = params.id.toLowerCase();
+  const id = params.id.toLowerCase().replace(" ","-");
+  console.log('parmas.id:', params.id)
+  console.log('id:', id)
 
   // API-COIN
 
@@ -40,6 +32,8 @@ const Coin = () => {
   console.log("UseState Coin:", coin);
   return (
     <>
+    {coin && (
+        <>
       <div>{coin.symbol}</div>
       <img src={coin.image.small} alt="coin" />
       <div>{coin.name}</div>
@@ -47,10 +41,20 @@ const Coin = () => {
       <div>{coin.market_data.current_price.usd}</div>
       <div>{coin.market_data.current_price.btc}</div>
       <div>{coin.market_data.market_cap.usd}</div>
-      <div>{coin.market_data.market_cap.usd}</div>
-      <div>{coin.name}</div>
+      <div>{coin.contract_address}</div>
+      <div>{coin.links.official_forum_url[0]}</div>
+      <div>%{coin.market_data.price_change_percentage_24h}</div>
+      <div>%{coin.market_data.price_change_percentage_7d}</div>
+      <div>%{coin.market_data.price_change_percentage_14d}</div>
+      <div>%{coin.market_data.price_change_percentage_30d}</div>
+      <div>%{coin.market_data.price_change_percentage_60d}</div>
+      <div>%{coin.market_data.price_change_percentage_200d}</div>
+      <div>%{coin.market_data.price_change_percentage_1y}</div>
+      
       <div>{coin.name}</div>
       <div dangerouslySetInnerHTML={{ __html: coin.description.en }}></div>
+      </>)}
+
     </>
   );
 };
@@ -65,16 +69,7 @@ export default Coin;
 
 
 
-Market Cap Rank
 
-  "price_change_24h": 60.003,
-    "price_change_percentage_24h": 0.31325,
-    "price_change_percentage_7d": 0.3239,
-    "price_change_percentage_14d": -4.69578,
-    "price_change_percentage_30d": -1.81555,
-    "price_change_percentage_60d": -9.25684,
-    "price_change_percentage_200d": -58.08426,
-    "price_change_percentage_1y": -70.21733,
 
 contract
 website

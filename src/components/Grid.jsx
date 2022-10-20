@@ -54,7 +54,7 @@ const Grid = ({ criptoList, search }) => {
                   {coin.symbol}
                 </span>
               </td>
-              <td>{coin.current_price}</td>
+              <td className="text-end">{coin.current_price.toLocaleString('es-MX')}</td>
               <td
                 className={
                   coin[percent] > 0
