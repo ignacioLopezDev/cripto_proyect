@@ -36,7 +36,7 @@ const Coin = () => {
       {coin && (
         <div class="grid">
           <div class="e-1">
-          <div class="e-1-1">{coin.symbol.toUpperCase()}</div>
+          <div class="e-1-1">({coin.symbol.toUpperCase()})</div>
           <div class="e-1-2">
             <img src={coin.image.small} alt="coin" height="70%" style={{padding:"0 15px 0 0"}}/>
             {coin.name}
@@ -58,7 +58,7 @@ const Coin = () => {
           </div>
           <div class="e-3">
           <div class="e-3-1">Contract:</div>
-          <div class="e-3-2">{coin.contract_address}</div>
+          <div class="e-3-2-1">{coin.contract_address}</div>
           <div class="e-3-1">Ranking:</div>
           <div class="e-3-2">{coin.coingecko_score}</div>
           <div class="e-3-1">Capitalization:</div>
@@ -66,7 +66,7 @@ const Coin = () => {
           <div class="e-3-1">Official Page:</div>
           <a href={coin.links.official_forum_url[0]} class="e-3-2">{coin.links.official_forum_url[0]}</a>
           </div>
-          <div class="e-4" dangerouslySetInnerHTML={{ __html: coin.description.en }}></div>
+        
           <div class="e-5">
             <table class="table table-dark text-center ">
               <thead>
@@ -121,6 +121,7 @@ const Coin = () => {
               </tbody>
             </table>
           </div >
+          <div class="e-4" dangerouslySetInnerHTML={{ __html: coin.description.en }}></div>
           <div class="e-6">
             {/* <Graph /> */}
           </div>
