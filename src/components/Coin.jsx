@@ -36,27 +36,35 @@ const Coin = () => {
       {coin && (
         <div class="grid">
           <div class="e-1">
-          <div class="e-1-1">{coin.symbol}</div>
+          <div class="e-1-1">{coin.symbol.toUpperCase()}</div>
           <div class="e-1-2">
-            <img src={coin.image.small} alt="coin" height="70%" />
+            <img src={coin.image.small} alt="coin" height="70%" style={{padding:"0 15px 0 0"}}/>
             {coin.name}
           </div>
           </div>
           <div class="e-2">
-            <div class="e-2-1">${coin.market_data.current_price.usd}</div>
-            <div class="e-2-2">%{coin.market_data.market_cap_change_percentage_24h_in_currency.usd}</div>
-            <div class="e-2-3">BTC {coin.market_data.current_price.btc}</div>
-            <div class="e-2-4">%{coin.market_data.market_cap_change_percentage_24h_in_currency.btc}</div>
+            <div class="e-2-1">${coin.market_data.current_price.usd.toFixed(2)}</div>
+            <div class="e-2-2" className={
+                  coin["market_data"]["market_cap_change_percentage_24h_in_currency"]["usd"] > 0
+                    ? "text-success"
+                    : "text-danger"
+                }>%{coin.market_data.market_cap_change_percentage_24h_in_currency.usd.toFixed(2)}</div>
+            <div class="e-2-3">BTC {coin.market_data.current_price.btc.toFixed(2)}</div>
+            <div class="e-2-4" className={
+                  coin["market_data"]["market_cap_change_percentage_24h_in_currency"]["btc"] > 0
+                    ? "text-success"
+                    : "text-danger"
+                }>%{coin.market_data.market_cap_change_percentage_24h_in_currency.btc.toFixed(2)}</div>
           </div>
           <div class="e-3">
-          <div class="e-3-1">Contract</div>
+          <div class="e-3-1">Contract:</div>
           <div class="e-3-2">{coin.contract_address}</div>
-          <div class="e-3-1">Ranking</div>
+          <div class="e-3-1">Ranking:</div>
           <div class="e-3-2">{coin.coingecko_score}</div>
-          <div class="e-3-1">Capitalization</div>
+          <div class="e-3-1">Capitalization:</div>
           <div class="e-3-2">{coin.market_data.market_cap.usd}</div>
-          <div class="e-3-1">Official Page</div>
-          <div class="e-3-2">{coin.links.official_forum_url[0]}</div>
+          <div class="e-3-1">Official Page:</div>
+          <a href={coin.links.official_forum_url[0]} class="e-3-2">{coin.links.official_forum_url[0]}</a>
           </div>
           <div class="e-4" dangerouslySetInnerHTML={{ __html: coin.description.en }}></div>
           <div class="e-5">
@@ -78,7 +86,7 @@ const Coin = () => {
           </div >
           </div >
           <div class="e-6">
-            <Graph />
+            {/* <Graph /> */}
           </div>
         </div>
       )}
@@ -87,26 +95,3 @@ const Coin = () => {
 };
 
 export default Coin;
-
-/* 
-
-
-
-
-
-
-
-
-
-contract
-website
-wallets
-community
-
- "tickers": [
-  "market": {
-        "name": "Binance",
- "trust_score": "green",
-  "trade_url": "https://www.bitforex.com/en/spot/btc_usdt",
-  
-*/

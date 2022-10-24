@@ -20,6 +20,10 @@ code {
   margin-top: 80px;
 }
 
+.container{
+
+}
+
 .criptoApp{
   font-size: 12px;
   color: white;
@@ -97,7 +101,7 @@ code {
   .grid {
     display: grid;
     /* display: inline-grid */
-    grid-template-columns: 30% 30% 40%;
+    grid-template-columns: auto auto auto;
     /* grid-template-columns: 1fr 1fr 1fr ; */
     /* grid-template-columns: repeat(3, 1fr) ; */
     /* grid-template-rows: 200px 400px; */
@@ -144,15 +148,23 @@ code {
     padding: 0;
     display: flex;
     align-items: center;
+    
   }
 
-  .grid .e-2-2 {
-    font-size: 2em;
+  .grid .text-success {
+    font-size: 1.7em;
+    padding: 0.5em;
+    display: flex;
+    align-items:center;
+    
+  }
+
+  .grid .text-danger {
+    font-size: 1.7em;
     padding: 0.5em;
     display: flex;
     align-items: center;
   }
-
   .grid .e-2-3 {
     font-size: 1.7em;
     padding: 0;
@@ -160,16 +172,10 @@ code {
     align-items: center;
   }
 
-  .grid .e-2-4 {
-    font-size: 0.9em;
-    padding: 1em;
-    display: flex;
-    align-items: center;
-  }
 
   .e-3 {
     display: grid;
-    grid-template-columns: 35% 65%;
+    grid-template-columns: auto auto;
     /* grid-template-rows: ; */
   }
 
@@ -275,8 +281,15 @@ code {
     align-items: center;
   }
 
-  .grid .e-2-2 {
-    font-size: 2em;
+  .grid .text-success {
+    font-size: 1.7em;
+    padding: 0.5em;
+    display: flex;
+    align-items:center;
+  }
+
+  .grid .text-danger {
+    font-size: 1.7em;
     padding: 0.5em;
     display: flex;
     align-items: center;
@@ -289,18 +302,13 @@ code {
     align-items: center;
   }
 
-  .grid .e-2-4 {
-    font-size: 0.9em;
-    padding: 1em;
-    display: flex;
-    align-items: center;
-  }
+ 
 
   .e-3 {
     display: grid;
     grid-column-start: 1;
     grid-column-end: 3;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: auto auto;
     /* grid-template-rows: ; */
   }
 

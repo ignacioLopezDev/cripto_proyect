@@ -26,7 +26,7 @@ const Grid = ({ criptoList, search }) => {
   const navigate = useNavigate()
 
   return (
-    <div className="row">
+    <div className="container" >
       <table className="table table-dark mt-4 table-hover  ">
         <thead>
           <tr >
