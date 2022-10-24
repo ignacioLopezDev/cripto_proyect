@@ -43,10 +43,10 @@ const Coin = () => {
           </div>
           </div>
           <div class="e-2">
-            <div class="e-2-1">{coin.market_data.current_price.usd}</div>
-            <div class="e-2-2">{coin.market_data.current_price.usd / 100}</div>
-            <div class="e-2-3">{coin.market_data.current_price.btc}</div>
-            <div class="e-2-4">{coin.market_data.current_price.btc / 100}</div>
+            <div class="e-2-1">${coin.market_data.current_price.usd}</div>
+            <div class="e-2-2">%{coin.market_data.market_cap_change_percentage_24h_in_currency.usd}</div>
+            <div class="e-2-3">BTC {coin.market_data.current_price.btc}</div>
+            <div class="e-2-4">%{coin.market_data.market_cap_change_percentage_24h_in_currency.btc}</div>
           </div>
           <div class="e-3">
           <div class="e-3-1">Contract</div>
@@ -59,14 +59,23 @@ const Coin = () => {
           <div class="e-3-2">{coin.links.official_forum_url[0]}</div>
           </div>
           <div class="e-4" dangerouslySetInnerHTML={{ __html: coin.description.en }}></div>
-          <div>
-          <div class="e-5">%{coin.market_data.price_change_percentage_24h}</div>
-          <div>%{coin.market_data.price_change_percentage_7d}</div>
-          <div>%{coin.market_data.price_change_percentage_14d}</div>
-          <div>%{coin.market_data.price_change_percentage_30d}</div>
-          <div>%{coin.market_data.price_change_percentage_60d}</div>
-          <div>%{coin.market_data.price_change_percentage_200d}</div>
-          <div>%{coin.market_data.price_change_percentage_1y}</div>
+          <div class="e-5">
+          <div class="e-5-1">
+          <div class="e-5-2">24h</div>
+          <div class="e-5-2">7d</div>
+          <div class="e-5-2">14d</div>
+          <div class="e-5-2">30d</div>
+          <div class="e-5-2">60d</div>
+          <div class="e-5-2">200d</div>
+          <div class="e-5-2">1y</div>
+          <div  class="e-5-2">%{coin.market_data.price_change_percentage_24h}</div>
+          <div class="e-5-2">%{coin.market_data.price_change_percentage_7d}</div>
+          <div class="e-5-2">%{coin.market_data.price_change_percentage_14d}</div>
+          <div class="e-5-2">%{coin.market_data.price_change_percentage_30d}</div>
+          <div class="e-5-2">%{coin.market_data.price_change_percentage_60d}</div>
+          <div class="e-5-2">%{coin.market_data.price_change_percentage_200d}</div>
+          <div class="e-5-2">%{coin.market_data.price_change_percentage_1y}</div>
+          </div >
           </div >
           <div class="e-6">
             <Graph />

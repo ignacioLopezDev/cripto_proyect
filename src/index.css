@@ -45,7 +45,8 @@ code {
 /* a partir de aca */
 
 .graph{
-  display: flex;
+  display:flex;
+
 }
 
 .switcher {
@@ -110,7 +111,7 @@ code {
   .grid .e-1 {
     padding: 1em 1em;
     display: grid;
-    grid-template-columns: min-content;
+    /* grid-template-columns: min-content; */
     grid-template-rows: 70% 30%;
   }
 
@@ -194,6 +195,15 @@ code {
     grid-column-end: 4;
   }
 
+  .e-5-1 {
+   display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  }
+
+  .grid .e-5-2 {
+    display: flex;
+    justify-content: center;
+   }
   .e-6 {
     grid-column-start: 1;
     grid-column-end: 4;
