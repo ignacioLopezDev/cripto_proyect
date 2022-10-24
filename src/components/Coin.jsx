@@ -43,7 +43,7 @@ const Coin = () => {
           </div>
           </div>
           <div class="e-2">
-            <div class="e-2-1">${coin.market_data.current_price.usd.toFixed(2)}</div>
+            <div class="e-2-1">${coin.market_data.current_price.usd.toLocaleString('es-MX')}</div>
             <div class="e-2-2" className={
                   coin["market_data"]["market_cap_change_percentage_24h_in_currency"]["usd"] > 0
                     ? "text-success"
@@ -62,28 +62,64 @@ const Coin = () => {
           <div class="e-3-1">Ranking:</div>
           <div class="e-3-2">{coin.coingecko_score}</div>
           <div class="e-3-1">Capitalization:</div>
-          <div class="e-3-2">{coin.market_data.market_cap.usd}</div>
+          <div class="e-3-2">{coin.market_data.market_cap.usd.toLocaleString('es-MX')}</div>
           <div class="e-3-1">Official Page:</div>
           <a href={coin.links.official_forum_url[0]} class="e-3-2">{coin.links.official_forum_url[0]}</a>
           </div>
           <div class="e-4" dangerouslySetInnerHTML={{ __html: coin.description.en }}></div>
           <div class="e-5">
-          <div class="e-5-1">
-          <div class="e-5-2">24h</div>
-          <div class="e-5-2">7d</div>
-          <div class="e-5-2">14d</div>
-          <div class="e-5-2">30d</div>
-          <div class="e-5-2">60d</div>
-          <div class="e-5-2">200d</div>
-          <div class="e-5-2">1y</div>
-          <div  class="e-5-2">%{coin.market_data.price_change_percentage_24h}</div>
-          <div class="e-5-2">%{coin.market_data.price_change_percentage_7d}</div>
-          <div class="e-5-2">%{coin.market_data.price_change_percentage_14d}</div>
-          <div class="e-5-2">%{coin.market_data.price_change_percentage_30d}</div>
-          <div class="e-5-2">%{coin.market_data.price_change_percentage_60d}</div>
-          <div class="e-5-2">%{coin.market_data.price_change_percentage_200d}</div>
-          <div class="e-5-2">%{coin.market_data.price_change_percentage_1y}</div>
-          </div >
+            <table class="table table-dark text-center ">
+              <thead>
+                <tr>
+                  <th>24h</th>
+                  <th>7d</th>
+                  <th>14d</th>
+                  <th>30d</th>
+                  <th>60d</th>
+                  <th>200d</th>
+                  <th>1y</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="tableBody">
+                  <td className={
+                  coin["market_data"]["price_change_percentage_24h"] > 0
+                    ? "text-success"
+                    : "text-danger"
+                }>{coin.market_data.price_change_percentage_24h.toFixed(2)}%</td>
+                  <td className={
+                  coin["market_data"]["price_change_percentage_7d"] > 0
+                    ? "text-success"
+                    : "text-danger"
+                }>{coin.market_data.price_change_percentage_7d.toFixed(2)}%</td>
+                  <td className={
+                  coin["market_data"]["price_change_percentage_14d"] > 0
+                    ? "text-success"
+                    : "text-danger"
+                }>{coin.market_data.price_change_percentage_14d.toFixed(2)}%</td>
+                  <td className={
+                  coin["market_data"]["price_change_percentage_30d"] > 0
+                    ? "text-success"
+                    : "text-danger"
+                }>{coin.market_data.price_change_percentage_30d.toFixed(2)}%</td>
+                  <td className={
+                  coin["market_data"]["price_change_percentage_60d"] > 0
+                    ? "text-success"
+                    : "text-danger"
+                }>{coin.market_data.price_change_percentage_60d.toFixed(2)}%</td>
+                  <td className={
+                  coin["market_data"]["price_change_percentage_200d"] > 0
+                    ? "text-success"
+                    : "text-danger"
+                }>{coin.market_data.price_change_percentage_200d.toFixed(2)}%</td>
+                  <td className={
+                  coin["market_data"]["price_change_percentage_1y"] > 0
+                    ? "text-success"
+                    : "text-danger"
+                }>{coin.market_data.price_change_percentage_1y.toFixed(2)}%</td>
+                </tr>
+              </tbody>
+            </table>
           </div >
           <div class="e-6">
             {/* <Graph /> */}

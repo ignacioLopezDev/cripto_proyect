@@ -51,8 +51,8 @@ function App() {
   return (
     <div  className="container">
       <BrowserRouter >
-        <Link to="/cripto_proyect" className="criptoApp fixed-top">Cripto App</Link>
-        <Navbar />
+        <Link to="/cripto_proyect" className=" criptoApp fixed-top">Cripto App</Link>
+        <Navbar/>
         {/* <Searcher setSearch={setSearch} /> */}
 
         <Routes>
