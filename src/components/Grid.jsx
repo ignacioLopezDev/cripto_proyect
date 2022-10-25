@@ -25,19 +25,30 @@ const Grid = ({ criptoList, search }) => {
   // *USENAVIGATE
   const navigate = useNavigate()
 
+
+
   return (
     <div className="container" >
       <table className="table table-dark mt-4 table-hover  ">
         <thead>
           <tr >
-            {titles.map((title, index) => (
-              <th key={index}>{title}</th>
-            ))}
+            {/* {titles.map((title, index) => ( */}
+              {/* <th key={index}>{title}</th> */}
+            {/* ))} */}
+            <th style={{width:"5%"}}>#</th>
+            <th style={{width:"5%"}}>Coin</th>
+            <th style={{width:"auto"}}></th>
+            <th style={{width:"30%"}}>Price</th>
+            <th style={{width:"30%"}} >% Percent</th>
           </tr>
         </thead>
         <tbody>
           {filterCoins.map((coin, index) => (
-            <tr key={index} onClick={() => navigate(`/cripto_proyect/coin/${coin.name}`)}>
+            <tr key={index} 
+            onClick={() => {
+              navigate(`/cripto_proyect/coin/${coin.name}`)
+            }}
+            >
               <td className="text-muted pe-1 text-center">
                 {coin.market_cap_rank}
               </td>
@@ -47,10 +58,10 @@ const Grid = ({ criptoList, search }) => {
                   alt={coin.name}
                   style={{ width: "27px" }}
                 />
-              </td>
-              <td>
-                <span>{coin.name}</span>
-                <span className="text-muted text-uppercase ms-3">
+              </td >
+              <td class="tableprop">
+                <span >{coin.name}</span>
+                <span class="text-muted text-uppercase ms-3">
                   {coin.symbol}
                 </span>
               </td>
