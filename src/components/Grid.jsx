@@ -12,8 +12,6 @@ const Grid = ({ criptoList, search }) => {
   //* ARMO EL TITULO DE "price_change" PARA LUEGO MAPEARLO
   const percent = `price_change_percentage_${chPercent}_in_currency`;
 
-  // *TITLES
-  const titles = ["#", "", "Coin", "Price", "%Avarage"];
 
   // *SEARCH FUNCTION
   const filterCoins = criptoList.filter(
@@ -31,46 +29,43 @@ const Grid = ({ criptoList, search }) => {
     <div className="container" >
       <table className="table table-dark mt-4 table-hover  ">
         <thead>
-          <tr >
-            {/* {titles.map((title, index) => ( */}
-              {/* <th key={index}>{title}</th> */}
-            {/* ))} */}
-            <th style={{width:"5%"}}>#</th>
-            <th style={{width:"5%"}}>Coin</th>
-            <th style={{width:"auto"}}></th>
-            <th style={{width:"30%"}}>Price</th>
-            <th style={{width:"30%"}} >% Percent</th>
+          <tr className="text-center">
+            <th style={{width:"5%" }}>#</th>
+            <th style={{width:"5%"}}></th>
+            <th style={{width:"auto"}}>Coin</th>
+            <th style={{width:"20%"}}>Price</th>
+            <th style={{width:"20%"}} >% Percent</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody >
           {filterCoins.map((coin, index) => (
             <tr key={index} 
             onClick={() => {
               navigate(`/cripto_proyect/coin/${coin.name}`)
             }}
             >
-              <td className="text-muted pe-1 text-center">
+              <td class="text-muted text-center tableprop">
                 {coin.market_cap_rank}
               </td>
-              <td>
+              <td class="tableprop">
                 <img
                   src={coin.image}
                   alt={coin.name}
-                  style={{ width: "27px" }}
+                  style={{ width: "35px" }}
                 />
               </td >
-              <td class="tableprop">
-                <span >{coin.name}</span>
-                <span class="text-muted text-uppercase ms-3">
+              <td >
+                <td><span >{coin.name}</span>
+                <td></td><span class="text-muted text-uppercase">
                   {coin.symbol}
-                </span>
+                </span></td>
               </td>
-              <td className="text-end">{coin.current_price.toLocaleString('es-MX')}</td>
+              <td class="tableprop text-end">{coin.current_price.toLocaleString('es-MX')}</td>
               <td
-                className={
+                class={
                   coin[percent] > 0
-                    ? "text-success text-center"
-                    : "text-danger text-center"
+                    ? "text-success text-center tableprop"
+                    : "text-danger text-center tableprop"
                 }
               >
                 {Math.round(coin[percent] * 100) / 100}%

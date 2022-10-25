@@ -42,8 +42,12 @@ code {
   padding: 0px 10px;
   height: 40px;
   background-color: #141313;
+  
 }
 
+.table .tableprop {
+  vertical-align: middle;
+}
 
 
 
