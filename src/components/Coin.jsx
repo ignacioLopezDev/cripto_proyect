@@ -7,7 +7,7 @@ import Graph from "./Graph";
 
 const Coin = () => {
   // USESTATE GUARDO COIN
-  const [coin, setCoin] = useState("");
+  const [coin, setCoin] = useState({});
 
   // *USEPARAMS
   const params = useParams();
@@ -23,7 +23,7 @@ const Coin = () => {
 
   const dataCoin = async () => {
     const res = await axios.get(apiCoin);
-    // console.log("datacoin", res.data);
+    console.log("datacoin", res.data);
     setCoin(res.data);
   };
 
@@ -35,12 +35,12 @@ const Coin = () => {
 
   // ?
 
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(newId(id));
-    dispatch(dataCoin(id))
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(newId(id));
+  //   dispatch(dataCoin(id))
 
-  }, [id]);
+  // }, [id]);
 
   // ?
 

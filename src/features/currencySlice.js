@@ -1,7 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// *REDUX FEAUTURE - CURRENCY NAVBAR
-
 export const currencySlice = createSlice({
   name: "currency",
   initialState: "usd",

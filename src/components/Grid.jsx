@@ -1,10 +1,17 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { newId } from "../features/Id";
+
+
+
 
 // *GRID LISTA DE CRIPTO
 const Grid = ({ criptoList, search }) => {
   // console.log("criptolist", criptoList);
+
+// DISPATCH
+const dispatch = useDispatch();
 
   //* TRAIGO EL "chPercent" DEL STORE
   const chPercent = useSelector((state) => state.chPercent);
@@ -21,8 +28,14 @@ const Grid = ({ criptoList, search }) => {
   );
 
   // *USENAVIGATE
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
+  // HANDLECLICK
+  const handleClick= (id) => {
+    console.log("este es el id", id)
+    dispatch(newId(id))
+  
+  }
 
 
   return (
@@ -40,9 +53,10 @@ const Grid = ({ criptoList, search }) => {
         <tbody >
           {filterCoins.map((coin, index) => (
             <tr key={index} 
-            onClick={() => {
-              navigate(`/cripto_proyect/coin/${coin.name}`)
-            }}
+            onClick={() => {handleClick(coin.name)}}
+            // onClick={() => {
+              // navigate(`/cripto_proyect/coin/${coin.name}`)
+            // }}
             >
               <td class="text-muted text-center tableprop">
                 {coin.market_cap_rank}
