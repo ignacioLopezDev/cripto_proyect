@@ -31,7 +31,7 @@ const Grid = ({ criptoList, search }) => {
 
   // HANDLECLICK
   const handleClick = (id) => {
-    // dispatch(apiData(id));
+    dispatch(apiData(id));
     dispatch(newId(id));
     navigate(`/cripto_proyect/coin/${id}`);
   };
