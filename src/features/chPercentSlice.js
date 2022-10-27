@@ -7,11 +7,12 @@ export const chPercentSlice = createSlice({
   initialState: "24h",
   reducers: {
     editChPercent: (state, action) => {
-      const changePercent = action.payload;
-      return changePercent;
+      state = action.payload;
+      return state;
     },
   },
 });
 
+export const chPercentSelector = (state) => state.chPercent
 export const { editChPercent } = chPercentSlice.actions;
 export default chPercentSlice.reducer;

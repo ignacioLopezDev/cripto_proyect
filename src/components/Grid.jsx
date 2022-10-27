@@ -1,14 +1,26 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { newId } from "../features/Id";
+// import { useNavigate } from "react-router-dom";
+// import { newId } from "../features/Id";
+import { apiData } from "../features/apiSlice";
+import { apiSelector } from "../features/apiSlice";
+// import {apiSelector} from "../features/exSlice"
 
+
+
+
+// 
 
 
 
 // *GRID LISTA DE CRIPTO
 const Grid = ({ criptoList, search }) => {
   // console.log("criptolist", criptoList);
+  
+  const loading = useSelector((state) => state.data)
+
+  // const {data, loading} = useSelector(apiSelector)
+
 
 // DISPATCH
 const dispatch = useDispatch();
@@ -32,10 +44,13 @@ const dispatch = useDispatch();
 
   // HANDLECLICK
   const handleClick= (id) => {
+
     console.log("este es el id", id)
-    dispatch(newId(id))
+    dispatch(apiData(id))
+    console.log("API DATA", loading )
   
   }
+
 
 
   return (
@@ -53,7 +68,7 @@ const dispatch = useDispatch();
         <tbody >
           {filterCoins.map((coin, index) => (
             <tr key={index} 
-            onClick={() => {handleClick(coin.name)}}
+            onClick={() => {handleClick(coin.name.toLowerCase().replace(" ", "-"))}}
             // onClick={() => {
               // navigate(`/cripto_proyect/coin/${coin.name}`)
             // }}

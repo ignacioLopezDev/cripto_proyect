@@ -7,11 +7,12 @@ export const sortSlice = createSlice({
   initialState: "market_cap_desc",
   reducers: {
     editSort: (state, action) => {
-      const changeSort = action.payload;
-      return changeSort;
+      state = action.payload;
+      return state;
     },
   },
 });
 
+export const sortSelector = (state) => state.sort
 export const { editSort } = sortSlice.actions;
 export default sortSlice.reducer;

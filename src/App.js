@@ -4,21 +4,25 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+
 import { Navbar } from "./components/navbar/Navbar";
 import Grid from "./components/Grid";
-import Searcher from "./components/Searcher";
+// import Searcher from "./components/Searcher";
 import Coin from "./components/Coin";
+import { currencySelector } from "./features/currencySlice";
+import { sortSelector } from "./features/sortSlice";
+import { chPercentSelector } from "./features/chPercentSlice";
 
-function App() {
+const App = () => {
   // *API PROPIETIES
   const currency = useSelector((state) => state.currency);
   console.log("currency:", currency);
 
-  const sort = useSelector((state) => state.sort);
-  // console.log('sort:', sort)
+  const sort = useSelector((state)=> state.sort);
+  console.log('sort:', sort)
 
   const chPercent = useSelector((state) => state.chPercent);
-  // console.log("chPercent:", chPercent);
+  console.log("chPercent:", chPercent);
 
   // * API ROUTE
   const api = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=${sort}&per_page=50&page=1&sparkline=false&price_change_percentage=${chPercent}`;
