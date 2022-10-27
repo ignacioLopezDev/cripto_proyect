@@ -7,7 +7,7 @@ export const idSlice = createSlice({
     newId: (state, action) => {
       const id = action.payload.toLowerCase().replace(" ", "-");
 
-      console.log("EL ID", id);
+      // console.log("id:", id);
 
       state = id;
 
@@ -16,6 +16,6 @@ export const idSlice = createSlice({
   },
 });
 
-export const idSelector = (state) => state.id
+export const idSelector = (state) => state.id;
 export const { newId } = idSlice.actions;
 export default idSlice.reducer;
