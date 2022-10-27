@@ -1,10 +1,13 @@
-import React from "react";
-
+import React, { useEffect, useState, } from "react";
+import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { apiData } from "../features/apiSlice";
 import { chPercentSelector } from "../features/chPercentSlice";
 import { apiSelector } from "../features/apiSlice";
+import { idSelector } from "../features/Id";
 import { useNavigate } from "react-router-dom"
+import { newId } from "../features/Id";
+import Coin from "./Coin";
 
 // *GRID LISTADO CRIPTOS
 const Grid = ({ criptoList, search }) => {
@@ -14,30 +17,45 @@ const Grid = ({ criptoList, search }) => {
   // USE SELECTOR - CHPERCENT
   const chPercent = useSelector(chPercentSelector);
 
-  // USE SELECTOR - APIDATA
+  // USE SELECTOR - APIDATA 
   const api = useSelector(apiSelector)
+
+  // USE SELECTOR - APIDATA 
+  const id = useSelector(idSelector)
 
   // USE NAVIGATE
   const navigate = useNavigate()
 
+  // USE STATE - ID SELECTED
+  const [idSelected, setIdSelected] = useState()
+
   // HANDLECLICK
   const handleClick = (id) => {
     dispatch(apiData(id));
-    
+    dispatch(newId(id))
   };
  
-
   
-  // ?SEARCH FUNCTION
-  const filterCoins = criptoList.filter(
-    (coin) =>
+
+    
+    // ?SEARCH FUNCTION
+    const filterCoins = criptoList.filter(
+      (coin) =>
       coin.name.toLowerCase().includes(search.toLowerCase()) ||
       coin.symbol.toLowerCase().includes(search.toLowerCase())
-  );
-
-  // CONSTRUCCION TITULO DE "price_change"
-  const percent = `price_change_percentage_${chPercent}_in_currency`;
-
+      );
+      
+      // CONSTRUCCION TITULO DE "price_change"
+      const percent = `price_change_percentage_${chPercent}_in_currency`;
+      
+      
+      
+  if (api.loading) return <div>Loading...</div>
+  if (api.data.id === id) return 
+  navigate(`/cripto_proyect/coin/:id`)
+  // <Link to={`/cripto_proyect/coin/${id}`}><Coin/></Link>
+  
+  
   return (
     <div className="container">
       <table className="table table-dark mt-4 table-hover">
