@@ -53,7 +53,7 @@ const App = () => {
 
 
   return (
-    <div  className="container">
+    <div  >
       <BrowserRouter >
         <Link to="/cripto_proyect" className=" criptoApp fixed-top">Cripto App</Link>
         <Navbar/>
@@ -61,6 +61,7 @@ const App = () => {
 
         <Routes>
           <Route
+          className="container"
             path="/cripto_proyect"
             element={<Grid criptoList={criptoList} search={search} />}
           />

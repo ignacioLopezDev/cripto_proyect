@@ -49,6 +49,7 @@ const Grid = ({ criptoList, search }) => {
   return (
     <div className="container">
       <table className="table table-dark mt-4 table-hover">
+      
         <thead>
           <tr className="text-center">
             <th style={{ width: "5%" }}>#</th>

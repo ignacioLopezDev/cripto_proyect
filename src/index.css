@@ -8,7 +8,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #212529;
-  color: lightgray;
+  color: #212529;
 }
 
 code {
@@ -17,8 +17,53 @@ code {
 }
 
 #root{
-  margin-top: 80px;
+  margin-top: 60px;
 }
+
+
+/* BARRITA */
+.loader{
+  position:relative;
+  /* width:max-content , */
+  height: 4px;
+  background: #212529;
+  -webkit-box-reflect: below 1px linear-gradiend(transparent, #0005);
+}
+
+.loader::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* background: linear-gradient(90deg, #fb0094, #0000ff, #00ff00, #ffff00, #fb0094); */
+  background: linear-gradient(90deg, #dcc600, );
+  animation: animate 20s linear infinite;
+  background-size: 500%;
+}
+
+
+.loader::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,#212529, #212529,#dcc600, #fb0094);
+  /* background: linear-gradient(90deg,#dcc600, #fb0094,#dcc600, #fb0094); */
+  /* background: linear-gradient(90deg, #fb0094, #0000ff, #00ff00, #ffff00, #fb0094, #0000ff, #00ff00, #ffff00, #fb0094); */
+  animation: animate 5s linear infinite;
+  background-size: 500%;
+  filter: blur(1px);
+}
+
+@keyframes animate {
+  0%
+  {
+    background-position: 0 0;
+  }
+  0%
+  {
+    background-position: 500% 0;
+  }
+}
+
 
 
 
