@@ -1,3 +1,10 @@
+CRIPTO PROYECT
+
+        -npx create-react-app client
+        -npm i react-router-dom
+
+
+PAGES
 npm run build
 
 package.json> abajo de "private"
