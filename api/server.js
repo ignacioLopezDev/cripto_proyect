@@ -24,7 +24,7 @@ app.use("/cripto_proyect", routes);
 // ERROR MIDDLEWATE
 app.use((err, req, res, next) => {
   console.error("err.stack");
-  res.status(505 || err.status).send({ status: "error", error: err.message });
+  res.status(505 || error.status).send({ status: "error", error: err.message });
 });
 
 db.sync({ force: false })
