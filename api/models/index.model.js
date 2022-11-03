@@ -1,7 +1,10 @@
-const User = require("./User")
-const Favorite = require("./Favorite")
+const db = require("../db/index.db");
 
-User.belongsToMany(Favorite,{through: "UserFavorites"})
-Favorite.belongsToMany(User,{through: "UserFavorites"})
+const User = require("./User");
+const Favorite = require("./Favorite");
 
-module.exports = {User, Favorite}
+const UserFavorites = db.define("UserFavorite", {}, { timestamps: false });
+User.belongsToMany(Favorite, { through: UserFavorites });
+Favorite.belongsToMany(User, { through: UserFavorites });
+
+module.exports = { User, Favorite };
