@@ -7,10 +7,7 @@ Favorite.init(
   {
     criptoId: {
       type: S.STRING,
-    },
-    criptoName: {
-      type: S.STRING,
-    },
+    }
   },
   {
     timestamps: false,
