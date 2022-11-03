@@ -38,4 +38,24 @@ const deleteFavorite = async (req, res, next) => {
   }
 };
 
-module.exports = { addFavorite, deleteFavorite };
+// GET FAVORITES
+const getFavorites = async (req, res, next) => {
+  const { user } = req.body;
+  try {
+    const checkUser = await User.findByPk(user);
+    if (!checkUser) res.status(404).send("User does not exist");
+
+    const showFavorites = await Favorite.findAll({ where: { userId: user } });
+    if (showFavorites.length === 0) {
+      res.status(200).send("The user has no favorites");
+    } else {
+      let result = showFavorites.map((coin) => coin.dataValues.criptoId);
+      res.status(200).send(result);
+      console.log("showFavorites:", showFavorites);
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { addFavorite, deleteFavorite, getFavorites };
