@@ -1,4 +1,5 @@
 https://auth0.com/
+https://www.youtube.com/watch?v=DRbXvN10_XA&t=508&ab_channel=FaztCode
 
 .env:
 # AUTH0 CONFIG

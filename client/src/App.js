@@ -5,6 +5,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 
+
 import { Navbar } from "./components/navbar/Navbar";
 import Grid from "./components/Grid";
 // import Searcher from "./components/Searcher";
@@ -14,6 +15,7 @@ import { sortSelector } from "./features/sortSlice";
 import { chPercentSelector } from "./features/chPercentSlice";
 
 const App = () => {
+
   // *API PROPIETIES
   const currency = useSelector(currencySelector);
   // console.log("currency:", currency);
@@ -55,18 +57,21 @@ const App = () => {
   return (
     <div  >
       <BrowserRouter >
-        <Link to="/cripto_proyect" className=" criptoApp fixed-top">Cripto App</Link>
+        {/* <Link to="/cripto_proyect" className=" criptoApp fixed-top">Cripto App</Link> */}
+        <Link to="/" className=" criptoApp fixed-top">Cripto App</Link>
         <Navbar/>
         {/* <Searcher setSearch={setSearch} /> */}
 
         <Routes>
           <Route
           className="container"
-            path="/cripto_proyect"
+            // path="/cripto_proyect"
+            path="/"
             element={<Grid criptoList={criptoList} search={search} />}
           />
           <Route
-          path="/cripto_proyect/coin/:id"
+          // path="/cripto_proyect/coin/:id"
+          path="/coin/:id"
           element={<Coin/>}
           >
           

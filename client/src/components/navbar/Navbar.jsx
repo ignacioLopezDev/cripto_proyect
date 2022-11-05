@@ -4,11 +4,14 @@ import ChPercentOptions from "./ChPercentOptions";
 import CurrencyOptions from "./CurrencyOptions";
 import SortOptions from "./SortOptions";
 import Loggin from "./LogIn";
+import LogOut from "./logOut";
 
 export const Navbar = () => {
+  // AUTH0 AUTENTICATION
+  const { isAuthenticated, user } = useAuth0();
 
-  const {loginWithRedirect} = useAuth0()
-
+  console.log(isAuthenticated);
+  console.log(user);
 
   return (
     <nav className="navbar navbar-expand fixed-top   ">
@@ -55,10 +58,14 @@ export const Navbar = () => {
             <ChPercentOptions />
           </ul>
         </li>
-          <li>
-            <Loggin/>
-          </li>
+        <li>{isAuthenticated ? <LogOut /> : <Loggin />}</li>
+        <li>{isAuthenticated ? 
+        <img src={user.picture} alt={user.nickname} style={{height: "1.7em"}}/> : <></>
+        // <>Hello {user.nickname}<>} : <></>
+        }
+        </li>
       </ul>
+      
     </nav>
   );
 };
