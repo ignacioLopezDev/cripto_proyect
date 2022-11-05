@@ -8,3 +8,5 @@ authRoutes.post("/signin", signIn);
 // authRoutes.use("/signout");
 
 module.exports = authRoutes;
+
+// https://auth0.com/blog/complete-guide-to-react-user-authentication/

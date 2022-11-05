@@ -2,7 +2,7 @@ const { config } = require("dotenv");
 config();
 
 module.exports = {
-  secret: process.env.AUTH_SECRET,
-  expires: process.env.AUTH_EXPIRES,
-  saltRounds: process.env.AUTH_SALTROUNDS,
+  secret: process.env.JWT_SECRET,
+  expires: process.env.JWT_EXPIRES,
+  saltRounds: process.env.JWT_SALTROUNDS,
 };

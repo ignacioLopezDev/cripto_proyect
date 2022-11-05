@@ -1,9 +1,10 @@
 {
-  "name": "cripto_proyect",
+  "name": "cripto_proyect_front",
   "version": "0.1.0",
   "private": true,
   "homepage": "https://ignacioLopezDev.github.io/cripto_proyect",
   "dependencies": {
+    "@auth0/auth0-react": "^1.12.0",
     "@reduxjs/toolkit": "^1.8.6",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
