@@ -78,17 +78,53 @@ code {
   
 }
 
-.navbar a {
-  color: lightgray;  
-}
+/* NAVBAR */
 
 .navbar{
+  justify-content: space-between;  
   margin-top: 18px;
-  padding: 0px 10px;
-  height: 40px;
+  padding: 0px 20px;
+  height: 50px;
+  /* background-color: #d38282; */
   background-color: #141313;
-  
+
 }
+
+.navbar div {
+  color: lightgray;
+
+}
+
+#navbarTwo{
+  padding-right: 50px;
+}
+
+#navbarTwo img {
+padding: 5px;
+margin : 0px 5px;
+height: 1.8em;
+background-color: grey;
+}
+
+#navbarTwo img:hover {
+  background-color: rgba(128, 128, 128, 0.611)
+  }
+
+#navbarTwo img .rounded-circle {
+  padding: 2em;
+  }
+
+
+
+.dropdown-menu {
+  min-width:max-content !important;
+}
+
+
+
+
+
+
 
 .table .tableprop {
   vertical-align: middle;

@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { editCurrency } from "../../features/currencySlice";
+import { editCurrency } from "../../../features/currencySlice";
 
 const CurrencyOptions = () => {
   // *TIPOS DE CURRENCY

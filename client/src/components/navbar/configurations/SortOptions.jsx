@@ -1,4 +1,4 @@
-import { editSort } from "../../features/sortSlice";
+import { editSort } from "../../../features/sortSlice";
 import { useDispatch } from "react-redux";
 
 const SortOptions = () => {
