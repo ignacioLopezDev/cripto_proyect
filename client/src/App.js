@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
+import {useAuth0} from "@auth0/auth0-react"
 
 
 import { Navbar } from "./components/navbar/Navbar";
@@ -13,8 +13,12 @@ import Coin from "./components/Coin";
 import { currencySelector } from "./features/currencySlice";
 import { sortSelector } from "./features/sortSlice";
 import { chPercentSelector } from "./features/chPercentSlice";
+import Loader from "./components/Loader";
 
 const App = () => {
+
+  // LOADER AUTH0
+  const {isLoading} = useAuth0()
 
   // *API PROPIETIES
   const currency = useSelector(currencySelector);
@@ -58,8 +62,10 @@ const App = () => {
     <div  >
       <BrowserRouter >
         {/* <Link to="/cripto_proyect" className=" criptoApp fixed-top">Cripto App</Link> */}
-        <Link to="/" className=" criptoApp fixed-top">Cripto App</Link>
+        <Link to="/" className=" cryptoApp fixed-top">Cripto App</Link>
+
         <Navbar/>
+        {isLoading ? <Loader/> : <></>}
         {/* <Searcher setSearch={setSearch} /> */}
 
         <Routes>

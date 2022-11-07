@@ -3,27 +3,27 @@ import { useAuth0 } from "@auth0/auth0-react";
 import ChPercentOptions from "./configurations/ChPercentOptions";
 import CurrencyOptions from "./configurations/CurrencyOptions";
 import SortOptions from "./configurations/SortOptions";
-import Loggin from "./user/LogIn";
-import LogOut from "./user/LogOut";
+import SignIn from "./user/SignIn";
+import SignOut from "./user/SignOut";
 
-import userLogo from "./user/images/usuario.png";
-import settingLogo from "./user/images/gear.png";
+import userLogo from "./images/usuario2.png";
+import settingLogo from "./images/gear2.png";
 
 export const Navbar = () => {
   // AUTH0 AUTENTICATION
-  const { isAuthenticated, user } = useAuth0();
+  const { isAuthenticated, user, isLoading } = useAuth0();
 
   console.log(isAuthenticated);
   console.log(user);
 
   return (
-    <nav className="navbar navbar-expand fixed-top  container-fluid ">
-      <div className="container" id="navbarOne">
+    <nav className="navbar navbar-expand fixed-top container-fluid ">
+      <div id="navbarOne" className="container" >
         <div class="navbar-brand " href="http://localhost:3000/">
-          Navbar
+          Crypto App
         </div>
       </div>
-      <div className="container d-flex flex-row-reverse" id="navbarTwo">
+      <div id="navbarTwo" className="container d-flex flex-row-reverse" >
         <ul class="navbar-nav">
           <li class="nav-item dropdown">
             <a
@@ -58,16 +58,22 @@ export const Navbar = () => {
               data-bs-toggle="dropdown"
               aria-expanded="false"
               style={{ padding: 0 }}
-            >
+            > {isAuthenticated?
               <img
-                src={userLogo}
+                src={user.picture}
                 alt="userLogo"
                 class="rounded-circle border border-secondary"
-              />
+                style={{padding:0}}
+              /> :
+              <img
+              src={userLogo}
+              alt="userLogo"
+              class="rounded-circle border border-secondary"
+            />}
             </a>
             <ul class="dropdown-menu dropdown-menu-dark ">
               <li>
-                <a class="dropdown-item">Login</a>
+                <a class="dropdown-item" style={{padding:0}}>{isAuthenticated ? <SignOut /> : <SignIn />}</a>
               </li>
               <li>
                 <a class="dropdown-item">Profile</a>

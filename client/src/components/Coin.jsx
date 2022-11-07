@@ -32,6 +32,7 @@ const Coin = () => {
   // console.log("loading:", loading);
   coin = coin.data;
 
+  // !LOADER
   if (loading) return <div className="loader"></div>;
 
   return (
