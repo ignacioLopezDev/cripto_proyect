@@ -2,26 +2,29 @@
 /* Barra finita  */
 * {
   color: rgb(18, 18, 18);
-} 
+}
 /* Navbar */
 * {
   color: #212121ff;
-} 
+}
 /* Principal */
 * {
   color: #2c2c2cff;
-} 
+}
 /* Letras titulos y bordes  */
 * {
   color: #353535ff;
-} 
+}
 /* Titulos */
-*{color: rgb(119, 117, 117)}
+* {
+  color: rgb(119, 117, 117);
+}
 /* Letras */
 * {
   color: #e0e0e0ff;
-} 
+}
 
+/*-------- GENERAL --------*/
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -42,6 +45,10 @@ code {
   margin-top: 70px;
 }
 
+/* div:hover {
+  border: 1px solid green;
+} */
+
 /*-------- NAVBAR CRYPTOAPP --------*/
 .cryptoApp {
   font-size: 12px;
@@ -51,9 +58,12 @@ code {
   height: 18px;
   text-decoration: none;
 }
+.cryptoApp:hover {
+  color: #fb0094;
+  transition-delay: 100ms;
+}
 
 /*-------- NAVBAR --------*/
-
 .navbar {
   justify-content: space-between;
   margin-top: 18px;
@@ -64,8 +74,15 @@ code {
   border-bottom: 1.5px solid #353535ff;
 }
 
-#navbarOne div {
+#navbarOne {
   color: rgb(119, 117, 117);
+  /* opacity: 0.6; */
+  transition: 0.3s;
+  text-decoration: none;
+}
+#navbarOne:hover {
+  color: rgba(184, 184, 184, 0.903);
+  transition-delay: 80ms;
 }
 #navbarTwo {
   padding-right: 45px;
@@ -78,11 +95,10 @@ code {
   height: 1.85em;
   opacity: 0.6;
   transition: 0.3s;
-  /* background-color: grey; */
 }
 
 #navbarTwo img:hover {
-  background-color: rgb(119, 117, 117);
+  background-color: rgba(119, 117, 117, 0.306);
   transition-delay: 80ms;
 }
 
@@ -97,9 +113,8 @@ code {
 /* -------- LOADER --------*/
 .loader {
   position: relative;
-  height: 1px;
+  height: 2px;
   background: #2c2c2cff;
-
 }
 
 .loader::before {
@@ -129,6 +144,19 @@ code {
   0% {
     background-position: 1000% 0;
   }
+}
+
+/* -------- COIN GRID --------*/
+#id{
+  background-color: #fb0094;
+}
+
+.table th{
+  background: #2c2c2cff !important;
+}
+
+.table td{
+  background: #2c2c2cff !important;
 }
 
 /* ---------- */
@@ -306,10 +334,6 @@ code {
 
   .grid div {
     padding: 1em;
-  }
-
-  div:hover {
-    border: 1px solid green;
   }
 }
 

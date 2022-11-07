@@ -1,5 +1,6 @@
-import { useAuth0 } from "@auth0/auth0-react";
+import { Link } from "react-router-dom";
 
+import { useAuth0 } from "@auth0/auth0-react";
 import ChPercentOptions from "./configurations/ChPercentOptions";
 import CurrencyOptions from "./configurations/CurrencyOptions";
 import SortOptions from "./configurations/SortOptions";
@@ -19,9 +20,7 @@ export const Navbar = () => {
   return (
     <nav className="navbar navbar-expand fixed-top container-fluid ">
       <div id="navbarOne" className="container" >
-        <div class="navbar-brand " href="http://localhost:3000/">
-          Crypto App
-        </div>
+        <Link to="/" id="navbarOne"  className="navbar-brand ">Crypto App</Link>
       </div>
       <div id="navbarTwo" className="container d-flex flex-row-reverse" >
         <ul class="navbar-nav">

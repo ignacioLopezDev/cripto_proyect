@@ -47,8 +47,8 @@ const Grid = ({ criptoList, search }) => {
   const percent = `price_change_percentage_${chPercent}_in_currency`;
 
   return (
-    <div className="container">
-      <table className="table table-dark mt-4 table-hover">
+    <div id="prueba" className="container">
+      <table className="table table-dark mt-4 table-hover" >
       
         <thead>
           <tr className="text-center">

@@ -3,8 +3,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import {useAuth0} from "@auth0/auth0-react"
-
+import { useAuth0 } from "@auth0/auth0-react";
 
 import { Navbar } from "./components/navbar/Navbar";
 import Grid from "./components/Grid";
@@ -16,15 +15,14 @@ import { chPercentSelector } from "./features/chPercentSlice";
 import Loader from "./components/Loader";
 
 const App = () => {
-
   // LOADER AUTH0
-  const {isLoading} = useAuth0()
+  const { isLoading } = useAuth0();
 
   // *API PROPIETIES
   const currency = useSelector(currencySelector);
   // console.log("currency:", currency);
 
-  const sort = useSelector((state)=> state.sort);
+  const sort = useSelector((state) => state.sort);
   // console.log('sort:', sort)
 
   const chPercent = useSelector(chPercentSelector);
@@ -41,7 +39,7 @@ const App = () => {
     // console.log("api", api);
   };
 
-  // * USEEFFECT - RENDERIZA API 
+  // * USEEFFECT - RENDERIZA API
   useEffect(() => {
     // renderiza al instante
     getData();
@@ -56,36 +54,31 @@ const App = () => {
   // USESTATE - CAPTURA API EN CRIPTOLIST
   const [criptoList, setCriptoList] = useState([]);
 
-
-
   return (
-    <div  >
-      <BrowserRouter >
-        {/* <Link to="/cripto_proyect" className=" criptoApp fixed-top">Cripto App</Link> */}
-        <Link to="/" className=" cryptoApp fixed-top">Cripto App</Link>
+    <div>
+      <BrowserRouter>
+        <Link to="/" className="cryptoApp fixed-top">Crypto App</Link>
 
-        <Navbar/>
-        {isLoading ? <Loader/> : <></>}
+        <Navbar />
+        {isLoading ? <Loader /> : <></>}
         {/* <Searcher setSearch={setSearch} /> */}
 
         <Routes>
           <Route
-          className="container"
+            className="container"
             // path="/cripto_proyect"
             path="/"
             element={<Grid criptoList={criptoList} search={search} />}
           />
           <Route
-          // path="/cripto_proyect/coin/:id"
-          path="/coin/:id"
-          element={<Coin/>}
-          >
-          
-          </Route>
+            // path="/cripto_proyect/coin/:id"
+            path="/coin/:id"
+            element={<Coin />}
+          ></Route>
         </Routes>
       </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
