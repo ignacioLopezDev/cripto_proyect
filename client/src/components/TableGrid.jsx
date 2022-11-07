@@ -52,9 +52,9 @@ const TableGrid = ({ criptoList }) => {
 
   return (
 
-    <div id="HomePage">
-    {/* <div id="Calc" className="container">ss</div> */}
-    <div className="container">
+    <div className="HomePage"> 
+    
+    <div id="HP-Grid-1" className="container">
       <Searcher setSearch={setSearch} />
       <table className="table table-dark mt-4 table-hover">
         <thead>
@@ -109,6 +109,10 @@ const TableGrid = ({ criptoList }) => {
           ))}
         </tbody>
       </table>
+    </div>
+    <div id="HP-Grid-2" className="container">
+      <div>hola</div>
+      <div>chau</div>
     </div>
     </div>
   );
