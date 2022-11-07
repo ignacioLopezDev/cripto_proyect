@@ -48,8 +48,7 @@ const App = () => {
     // return () => clearInterval(interval);
   }, [currency, sort, chPercent]);
 
-  // * USESTATE SEARCH
-  const [search, setSearch] = useState("");
+
 
   // USESTATE - CAPTURA API EN CRIPTOLIST
   const [criptoList, setCriptoList] = useState([]);
@@ -58,17 +57,16 @@ const App = () => {
     <div>
       <BrowserRouter>
         <Link to="/" className="cryptoApp fixed-top">Crypto App</Link>
-
         <Navbar />
         {isLoading ? <Loader /> : <></>}
-        {/* <Searcher setSearch={setSearch} /> */}
+
 
         <Routes>
           <Route
-            className="container"
+            // className="container"
             // path="/cripto_proyect"
             path="/"
-            element={<Grid criptoList={criptoList} search={search} />}
+            element={<Grid criptoList={criptoList} />}
           />
           <Route
             // path="/cripto_proyect/coin/:id"

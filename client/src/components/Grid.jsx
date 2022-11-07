@@ -8,9 +8,10 @@ import { idSelector } from "../features/Id";
 import { useNavigate } from "react-router-dom";
 import { newId } from "../features/Id";
 import Coin from "./Coin";
+import Searcher from "./Searcher";
 
 // *GRID LISTADO CRIPTOS
-const Grid = ({ criptoList, search }) => {
+const Grid = ({ criptoList }) => {
   // DISPATCH
   const dispatch = useDispatch();
 
@@ -22,12 +23,16 @@ const Grid = ({ criptoList, search }) => {
 
   // USE SELECTOR - APIDATA
   const id = useSelector(idSelector);
+  
 
   // USE NAVIGATE
   const navigate = useNavigate();
 
   // USE STATE - ID SELECTED
   const [idSelected, setIdSelected] = useState();
+
+  // * USE STATE SEARCH
+  const [search, setSearch] = useState("");
 
   // HANDLECLICK
   const handleClick = (id) => {
@@ -47,7 +52,8 @@ const Grid = ({ criptoList, search }) => {
   const percent = `price_change_percentage_${chPercent}_in_currency`;
 
   return (
-    <div id="prueba" className="container">
+    <div className="container">
+      <Searcher setSearch={setSearch} />
       <table className="table table-dark mt-4 table-hover" >
       
         <thead>
