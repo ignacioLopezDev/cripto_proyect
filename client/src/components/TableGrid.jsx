@@ -10,8 +10,8 @@ import { newId } from "../features/Id";
 import Coin from "./Coin";
 import Searcher from "./Searcher";
 
-// *GRID LISTADO CRIPTOS
-const Grid = ({ criptoList }) => {
+// *TableGrid LISTADO CRIPTOS
+const TableGrid = ({ criptoList }) => {
   // DISPATCH
   const dispatch = useDispatch();
 
@@ -23,7 +23,6 @@ const Grid = ({ criptoList }) => {
 
   // USE SELECTOR - APIDATA
   const id = useSelector(idSelector);
-  
 
   // USE NAVIGATE
   const navigate = useNavigate();
@@ -52,10 +51,12 @@ const Grid = ({ criptoList }) => {
   const percent = `price_change_percentage_${chPercent}_in_currency`;
 
   return (
+
+    <div id="HomePage">
+    {/* <div id="Calc" className="container">ss</div> */}
     <div className="container">
       <Searcher setSearch={setSearch} />
-      <table className="table table-dark mt-4 table-hover" >
-      
+      <table className="table table-dark mt-4 table-hover">
         <thead>
           <tr className="text-center">
             <th style={{ width: "5%" }}>#</th>
@@ -109,6 +110,7 @@ const Grid = ({ criptoList }) => {
         </tbody>
       </table>
     </div>
+    </div>
   );
 };
-export default Grid;
+export default TableGrid;

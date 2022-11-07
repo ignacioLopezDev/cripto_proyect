@@ -6,8 +6,7 @@ import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
 import { Navbar } from "./components/navbar/Navbar";
-import Grid from "./components/Grid";
-// import Searcher from "./components/Searcher";
+import TableGrid from "./components/TableGrid";
 import Coin from "./components/Coin";
 import { currencySelector } from "./features/currencySlice";
 import { sortSelector } from "./features/sortSlice";
@@ -48,8 +47,6 @@ const App = () => {
     // return () => clearInterval(interval);
   }, [currency, sort, chPercent]);
 
-
-
   // USESTATE - CAPTURA API EN CRIPTOLIST
   const [criptoList, setCriptoList] = useState([]);
 
@@ -60,13 +57,12 @@ const App = () => {
         <Navbar />
         {isLoading ? <Loader /> : <></>}
 
-
         <Routes>
           <Route
-            // className="container"
+            className="container"
             // path="/cripto_proyect"
             path="/"
-            element={<Grid criptoList={criptoList} />}
+            element={<TableGrid criptoList={criptoList} />}
           />
           <Route
             // path="/cripto_proyect/coin/:id"

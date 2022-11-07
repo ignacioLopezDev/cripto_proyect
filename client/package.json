@@ -2,7 +2,7 @@
   "name": "cripto_proyect_front",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ignacioLopezDev.github.io/cripto_proyect",
+  "homepage": "https://ignacioLopezDev.github.io/",
   "dependencies": {
     "@auth0/auth0-react": "^1.12.0",
     "@reduxjs/toolkit": "^1.8.6",

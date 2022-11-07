@@ -38,7 +38,7 @@ const Coin = () => {
   return (
     <>
       {coin && (
-        <div className="grid">
+        <div className="TableGrid">
           <div className="e-1">
             <div className="e-1-1">({coin.symbol.toUpperCase()})</div>
             <div className="e-1-2">
@@ -249,7 +249,7 @@ export default Coin;
 
 //   return (
 //   <>
-//     <div className="grid">
+//     <div className="TableGrid">
 //       <div className="e-1">
 //         <div className="e-1-1">({symbol.toUpperCase()})</div>
 //         <div className="e-1-2">

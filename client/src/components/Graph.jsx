@@ -140,7 +140,7 @@ const Graph = () => {
       backgroundColor: "#000000",
       textColor: "#d1d4dc",
     },
-    grid: {
+    TableGrid: {
       vertLines: {
         visible: false,
       },
