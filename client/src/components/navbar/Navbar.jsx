@@ -9,6 +9,7 @@ import SignOut from "./user/SignOut";
 
 import userLogo from "./images/usuario2.png";
 import settingLogo from "./images/gear2.png";
+import Profile from "./user/Profile";
 
 export const Navbar = () => {
   // AUTH0 AUTENTICATION
@@ -72,10 +73,11 @@ export const Navbar = () => {
             </a>
             <ul class="dropdown-menu dropdown-menu-dark ">
               <li>
-                <a class="dropdown-item" style={{padding:0}}>{isAuthenticated ? <SignOut /> : <SignIn />}</a>
+              {isAuthenticated ? <Profile/> : <></>}
+                
               </li>
               <li>
-                <a class="dropdown-item">Profile</a>
+              {isAuthenticated ? <SignOut /> : <SignIn />}
               </li>
             </ul>
           </li>
