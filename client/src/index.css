@@ -85,7 +85,7 @@ code {
   transition-delay: 80ms;
 }
 #navbarTwo {
-  padding-right: 10px;
+  padding-right: 0px;
   height: 50px;
 }
 
@@ -162,19 +162,27 @@ code {
 /* -------- HomePage-Grid --------*/
 .HomePage {
   display: grid;
-  grid-template-columns: 55% auto;
+  grid-template-columns: 50% auto;
 }
 .HomePage > div {
   padding: 20px;
 }
 
-/* #HP-Grid-1{
-overflow:;
-} */
+#HP-Grid-1 {
+  padding: 0;
+}
 
-/* #HP-Grid-1{
-  border-right: 1.5px solid #353535ff;
-} */
+#HP-Grid-1-1 {
+  padding: 20px 20px 0px 20px;
+  /* position: sticky; */
+  top: 70px;
+  height: 50px;
+  background-color: #2c2c2cff;
+}
+
+#HP-Grid-1-2 {
+  padding: 0 20px;
+}
 
 #HP-Grid-2 {
   position: sticky;
@@ -192,7 +200,7 @@ overflow:;
 #HP-Grid-2-2 {
   padding: 20px;
   height: 300px;
-  border-top: 1.5px solid #353535ff
+  border-top: 1.5px solid #353535ff;
 }
 
 /* -------- SEARCHER -------- */
@@ -207,6 +215,7 @@ overflow:;
 }
 
 /* -------- TABLE -------- */
+
 .table th {
   background: #2c2c2cff !important;
 }
@@ -220,6 +229,8 @@ overflow:;
 }
 
 .table tr {
+  position: sticky;
+  top: 0;
   font-size: 0.8em;
 }
 
