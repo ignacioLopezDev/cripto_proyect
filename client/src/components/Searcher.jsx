@@ -3,7 +3,8 @@ const Searcher = ({ setSearch }) => {
     <input
       type="text"
       placeholder="Search Coin..."
-      className=" form-control form-control-sm text-dark border-0 text-center "
+      id="searcher"
+      className=" form-control form-control text-dark border-0 text-center "
       onChange={(e) => setSearch(e.target.value)}
     />
   );

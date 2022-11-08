@@ -52,6 +52,7 @@ const TableGrid = ({ criptoList }) => {
 
   return (
 
+    // <div className="">
     <div className="HomePage"> 
     
     <div id="HP-Grid-1" className="container">
@@ -59,11 +60,11 @@ const TableGrid = ({ criptoList }) => {
       <table className="table table-dark mt-4 table-hover">
         <thead>
           <tr className="text-center">
-            <th style={{ width: "5%" }}>#</th>
             <th style={{ width: "5%" }}></th>
-            <th style={{ width: "auto" }}>Coin</th>
+            <th style={{ width: "5%" }}></th>
+            <th style={{ width: "auto" }}>Crypto Coin</th>
             <th style={{ width: "20%" }}>Price</th>
-            <th style={{ width: "20%" }}>% Percent</th>
+            <th style={{ width: "24%" }}>% Percent</th>
           </tr>
         </thead>
         <tbody>
@@ -81,7 +82,7 @@ const TableGrid = ({ criptoList }) => {
                 <img
                   src={coin.image}
                   alt={coin.name}
-                  style={{ width: "35px" }}
+                  style={{ width: "30px" }}
                 />
               </td>
               <td>
@@ -110,11 +111,12 @@ const TableGrid = ({ criptoList }) => {
         </tbody>
       </table>
     </div>
-    <div id="HP-Grid-2" className="container">
-      <div>hola</div>
-      <div>chau</div>
+    <div id="HP-Grid-2">
+      <div id="HP-Grid-2-1">hola</div>
+      <div id="HP-Grid-2-2">chau</div>
     </div>
     </div>
+    // </div>
   );
 };
 export default TableGrid;

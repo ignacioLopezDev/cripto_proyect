@@ -25,7 +25,8 @@ export const Navbar = () => {
       </div>
       <div id="navbarTwo" className="container d-flex flex-row-reverse" >
         <ul class="navbar-nav">
-          <li class="nav-item dropdown">
+          {/* <li class="nav-item dropdown"> */}
+          <li class="nav-item dropdown ">
             <a
               class="nav-link"
               role="button"
@@ -39,9 +40,9 @@ export const Navbar = () => {
                 class="rounded-circle border border-secondary"
               />
             </a>
-            <ul class="dropdown-menu dropdown-menu-dark">
+            <ul class="dropdown-menu  dropdown-menu-dark dropdown-menu-end ">
               <li>
-                <a class="dropdown-item">POrte</a>
+                <a class="dropdown-item">POrtssssse</a>
               </li>
               <li>
                 <a class="dropdown-item">POrte</a>
@@ -71,7 +72,7 @@ export const Navbar = () => {
               class="rounded-circle border border-secondary"
             />}
             </a>
-            <ul class="dropdown-menu dropdown-menu-dark ">
+            <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end ">
               <li>
               {isAuthenticated ? <Profile/> : <></>}
                 
