@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 import { useAuth0 } from "@auth0/auth0-react";
 import ChPercentOptions from "./configurations/ChPercentOptions";
@@ -10,20 +11,33 @@ import SignOut from "./user/SignOut";
 import userLogo from "./images/usuario2.png";
 import settingLogo from "./images/gear2.png";
 import Profile from "./user/Profile";
+import { useDispatch } from "react-redux";
+import { newUser } from "../../features/userSlice";
+
 
 export const Navbar = () => {
   // AUTH0 AUTENTICATION
   const { isAuthenticated, user, isLoading } = useAuth0();
+  // console.log(isAuthenticated);
+  console.log("USUARIO",user);
 
-  console.log(isAuthenticated);
-  console.log(user);
+  // USE DISPATCH
+  const dispatch = useDispatch()
+
+  // USE EFFECT
+  useEffect(() => {
+    dispatch(newUser(user))
+    // console.log("Use Effect User", user);
+  }, [user]);
 
   return (
     <nav className="navbar navbar-expand fixed-top container-fluid ">
-      <div id="navbarOne" className="container" >
-        <Link to="/" id="navbarOne"  className="navbar-brand ">Crypto App</Link>
+      <div id="navbarOne" className="container">
+        <Link to="/" id="navbarOne" className="navbar-brand ">
+          Crypto App
+        </Link>
       </div>
-      <div id="navbarTwo" className="container d-flex flex-row-reverse" >
+      <div id="navbarTwo" className="container d-flex flex-row-reverse">
         <ul class="navbar-nav">
           {/* <li class="nav-item dropdown"> */}
           <li class="nav-item dropdown ">
@@ -59,27 +73,26 @@ export const Navbar = () => {
               data-bs-toggle="dropdown"
               aria-expanded="false"
               style={{ padding: 0 }}
-            > {isAuthenticated?
-              <img
-                src={user.picture}
-                alt="userLogo"
-                class="rounded-circle border border-secondary"
-                style={{padding:0}}
-              /> :
-              <img
-              src={userLogo}
-              alt="userLogo"
-              class="rounded-circle border border-secondary"
-            />}
+            >
+              {" "}
+              {isAuthenticated ? (
+                <img
+                  src={user.picture}
+                  alt="userLogo"
+                  class="rounded-circle border border-secondary"
+                  style={{ padding: 0 }}
+                />
+              ) : (
+                <img
+                  src={userLogo}
+                  alt="userLogo"
+                  class="rounded-circle border border-secondary"
+                />
+              )}
             </a>
             <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end ">
-              <li>
-              {isAuthenticated ? <Profile/> : <></>}
-                
-              </li>
-              <li>
-              {isAuthenticated ? <SignOut /> : <SignIn />}
-              </li>
+              <li>{isAuthenticated ? <Profile /> : <></>}</li>
+              <li>{isAuthenticated ? <SignOut /> : <SignIn />}</li>
             </ul>
           </li>
         </ul>

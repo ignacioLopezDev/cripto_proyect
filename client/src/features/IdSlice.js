@@ -7,8 +7,6 @@ export const idSlice = createSlice({
     newId: (state, action) => {
       const id = action.payload.toLowerCase().replace(" ", "-");
 
-      // console.log("id:", id);
-
       state = id;
 
       return state;

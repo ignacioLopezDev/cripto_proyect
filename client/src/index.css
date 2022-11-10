@@ -238,6 +238,14 @@ code {
   font-size: 0.85em;
 }
 
+.favorite-logo{
+  vertical-align:middle;
+}
+.favorite-logo img{
+  height: 2em;
+}
+
+
 /* a partir de aca */
 
 .graph {

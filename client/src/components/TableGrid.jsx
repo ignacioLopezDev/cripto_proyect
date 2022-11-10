@@ -4,11 +4,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { apiData } from "../features/apiSlice";
 import { chPercentSelector } from "../features/chPercentSlice";
 import { apiSelector } from "../features/apiSlice";
-import { idSelector } from "../features/Id";
+import { idSelector } from "../features/IdSlice";
 import { useNavigate } from "react-router-dom";
-import { newId } from "../features/Id";
+import { newId } from "../features/IdSlice";
 import Coin from "./Coin";
 import Searcher from "./Searcher";
+
+import favoriteLogoOne from "./navbar/images/favorite1.png";
+import favoriteLogoTwo from "./navbar/images/favorite2.png";
 
 // *TableGrid LISTADO CRIPTOS
 const TableGrid = ({ criptoList }) => {
@@ -55,12 +58,13 @@ const TableGrid = ({ criptoList }) => {
     <div className="HomePage">
       <div id="HP-Grid-1">
         <div id="HP-Grid-1-1">
-        <Searcher  setSearch={setSearch} />
+          <Searcher setSearch={setSearch} />
         </div>
         <div id="HP-Grid-1-2">
           <table className="table table-dark mt-4 table-hover">
             <thead>
               <tr className="text-center">
+                <th style={{ width: "5%" }}></th>
                 <th style={{ width: "5%" }}></th>
                 <th style={{ width: "5%" }}></th>
                 <th style={{ width: "auto" }}>Crypto Coin</th>
@@ -70,15 +74,20 @@ const TableGrid = ({ criptoList }) => {
             </thead>
             <tbody>
               {filterCoins.map((coin, index) => (
+                
                 <tr
                   key={index}
                   onClick={() => {
                     handleClick(coin.name.toLowerCase().replace(" ", "-"));
                   }}
                 >
+                   <td className="favorite-logo">
+                    <img src={favoriteLogoOne} alt="favoriteLogo" />
+                  </td>
                   <td className="text-muted text-center tableprop">
                     {coin.market_cap_rank}
                   </td>
+                 
                   <td className="tableprop">
                     <img
                       src={coin.image}
