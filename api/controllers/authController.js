@@ -1,3 +1,5 @@
+/*
+Auth controller backup
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
@@ -46,3 +48,4 @@ const signIn = async (req, res, next) => {
 };
 
 module.exports = { signUp, signIn };
+*/

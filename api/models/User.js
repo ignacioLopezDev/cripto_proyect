@@ -7,17 +7,8 @@ User.init(
   {
     username: {
       type: S.STRING,
-      unique: true,
+      unique: false,
       allowNull: false,
-      validate: {
-        len: {
-          args: [3, 45],
-          msg: "it must have more than 2 words",
-        },
-        isAlpha: {
-          msg: "username only use words",
-        },
-      },
     },
     email: {
       type: S.STRING,
@@ -27,10 +18,10 @@ User.init(
         isEmail: true,
       },
     },
-    password: {
+    picture: {
       type: S.STRING,
-      allowNull: false,
-    },
+      unique:false,
+    }
   },
   {
     timestamps: false,
