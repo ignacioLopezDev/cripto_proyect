@@ -117,19 +117,18 @@ code {
   padding: 0px 10px 0px 5px !important;
 }
 
-
 .dropdown-item img {
   padding: 0px;
   margin: 0px !important;
   height: 27px;
 }
 
-#sign-out{
-  padding:3px 5px 8px 7px !important;
+#sign-out {
+  padding: 3px 5px 8px 7px !important;
 }
 
-#profile{
-  padding:3px 5px 8px 5px !important
+#profile {
+  padding: 3px 5px 8px 5px !important;
 }
 
 /* -------- LOADER --------*/
@@ -247,13 +246,30 @@ code {
   font-size: 0.85em;
 }
 
-.favorite-logo{
-  vertical-align:middle;
+.Fav-logo {
+  vertical-align: middle;
 }
-.favorite-logo img{
+
+
+.favorite-Logo{
+  position:relative;
   height: 2em;
 }
 
+.favorite-Logo-Hover {
+  position:absolute;
+  top: 16px;
+  left: 10px;
+  height: 2em;
+
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity .2s;
+}
+
+tr:hover .favorite-Logo-Hover {
+  opacity: 1;
+}
 
 /* a partir de aca */
 

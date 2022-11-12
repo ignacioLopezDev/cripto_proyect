@@ -7,16 +7,22 @@ import { apiSelector } from "../features/apiSlice";
 import { idSelector } from "../features/IdSlice";
 import { useNavigate } from "react-router-dom";
 import { newId } from "../features/IdSlice";
+import { userSelector } from "../features/loginUserSlice";
+import { favoritePost } from "../features/addFavoriteSlice";
 import Coin from "./Coin";
 import Searcher from "./Searcher";
 
-import favoriteLogoOne from "./navbar/images/favorite1.png";
-import favoriteLogoTwo from "./navbar/images/favorite2.png";
+import favoriteLogo from "./navbar/images/favorite1.png";
+import favoriteLogoHover from "./navbar/images/favorite2.png";
 
 // *TableGrid LISTADO CRIPTOS
 const TableGrid = ({ criptoList }) => {
   // DISPATCH
   const dispatch = useDispatch();
+
+  // USE SELECTOR - USER LOGGUED
+  const userLoggued = useSelector(userSelector);
+  // console.log("userLoggued:", userLoggued);
 
   // USE SELECTOR - CHPERCENT
   const chPercent = useSelector(chPercentSelector);
@@ -42,6 +48,15 @@ const TableGrid = ({ criptoList }) => {
     dispatch(newId(id));
     navigate(`/cripto_proyect/coin/${id}`);
   };
+
+  // HANDLEFAVORITE
+  const handleFavorite = (e) => {
+    if (!userLoggued) {
+      alert("registrese");
+    } else {
+      console.log("EVENTOO", e);
+      dispatch(favoritePost)
+  }};
 
   // ?SEARCH FUNCTION
   const filterCoins = criptoList.filter(
@@ -74,28 +89,54 @@ const TableGrid = ({ criptoList }) => {
             </thead>
             <tbody>
               {filterCoins.map((coin, index) => (
-                
                 <tr
+                  // onClick={() => {
+                  //   handleClick(coin.name.toLowerCase().replace(" ", "-"));
+                  // }}
                   key={index}
+                >
+                  <td className="Fav-logo">
+                    <img className="favorite-Logo"
+                      // onClick={() => {
+                      //   handleFavorite(
+                      //     coin.name.toLowerCase().replace(" ", "-")
+                      //   );
+                      // }}
+                      src={favoriteLogo}
+                      alt="favoriteLogo"
+                    />
+                        <img className="favorite-Logo-Hover"
+                      onClick={() => {
+                        handleFavorite({
+                          "cryptoId":coin.name.toLowerCase().replace(" ", "-"),
+                          "userId":userLoggued.id}
+                        );
+                      }}
+                      src={favoriteLogoHover}
+                      alt="favoriteLogo"
+                    />
+                  </td>
+                  <td className="text-muted text-center tableprop"
                   onClick={() => {
                     handleClick(coin.name.toLowerCase().replace(" ", "-"));
-                  }}
-                >
-                   <td className="favorite-logo">
-                    <img src={favoriteLogoOne} alt="favoriteLogo" />
-                  </td>
-                  <td className="text-muted text-center tableprop">
+                  }}>
                     {coin.market_cap_rank}
                   </td>
-                 
-                  <td className="tableprop">
+
+                  <td className="tableprop"
+                  onClick={() => {
+                    handleClick(coin.name.toLowerCase().replace(" ", "-"));
+                  }}>
                     <img
                       src={coin.image}
                       alt={coin.name}
                       style={{ width: "30px" }}
                     />
                   </td>
-                  <td>
+                  <td
+                  onClick={() => {
+                    handleClick(coin.name.toLowerCase().replace(" ", "-"));
+                  }}>
                     <div>
                       <span>{coin.name}</span>
                       <div></div>
@@ -104,7 +145,11 @@ const TableGrid = ({ criptoList }) => {
                       </span>
                     </div>
                   </td>
-                  <td className="tableprop text-end">
+                  <td className="tableprop text-end"
+                  onClick={() => {
+                    handleClick(coin.name.toLowerCase().replace(" ", "-"));
+                  }}>
+                    
                     {coin.current_price.toLocaleString("es-MX")}
                   </td>
                   <td
@@ -113,6 +158,9 @@ const TableGrid = ({ criptoList }) => {
                         ? "text-success text-center tableprop"
                         : "text-danger text-center tableprop"
                     }
+                    onClick={() => {
+                      handleClick(coin.name.toLowerCase().replace(" ", "-"));
+                    }}
                   >
                     {Math.round(coin[percent] * 100) / 100}%
                   </td>
@@ -127,7 +175,6 @@ const TableGrid = ({ criptoList }) => {
         <div id="HP-Grid-2-2">chau</div>
       </div>
     </div>
-    // </div>
   );
 };
 export default TableGrid;

@@ -12,7 +12,6 @@ import userLogo from "./images/usuario2.png";
 import settingLogo from "./images/gear2.png";
 import Profile from "./user/Profile";
 import { useDispatch } from "react-redux";
-import { newUser } from "../../features/userSlice";
 import { userPost } from "../../features/loginUserSlice";
 
 
@@ -27,10 +26,11 @@ export const Navbar = () => {
 
   // USE EFFECT
   useEffect(() => {
-    dispatch(newUser(user))
     // console.log("Use Effect User", user);
     dispatch(userPost(user))
   }, [user]);
+
+
 
   return (
     <nav className="navbar navbar-expand fixed-top container-fluid ">
@@ -80,7 +80,7 @@ export const Navbar = () => {
               {isAuthenticated ? (
                 <img
                   src={user.picture}
-                  alt="userLogo"
+                  alt="m"
                   class="rounded-circle border border-secondary"
                   style={{ padding: 0 }}
                 />

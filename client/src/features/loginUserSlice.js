@@ -37,4 +37,5 @@ export const loginUserReducer = createSlice({
   },
 });
 
+export const userSelector = (state) => state.user.data[0]
 export default loginUserReducer.reducer;
