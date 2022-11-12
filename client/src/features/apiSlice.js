@@ -35,31 +35,4 @@ export const apiDataReducer = createSlice({
 
 export const apiSelector = (state) => state.api;
 export default apiDataReducer.reducer;
-// VERR export const postReducer = postSlice.reducer
 
-// export const idSlice = createSlice({
-//   name: "id",
-//   initialState: {},
-//   reducers: {
-//     newId: (state, action) => {
-//       const id = action.payload.toLowerCase().replace(" ", "-");
-
-//       console.log("EL ID", id);
-
-//       console.log("la api", apiCoin);
-
-//       const dataCoin = async () => {
-//         const res = await axios.get(apiCoin);
-
-//         console.log("LA DATA", res.data);
-//         state = res.data;
-
-//        return state
-//       };
-//       dataCoin()
-//     },
-//   },
-// });
-
-// export const { newId } = idSlice.actions;
-// export default idSlice.reducer;

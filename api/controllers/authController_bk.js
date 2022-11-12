@@ -5,11 +5,9 @@ const signUp = async (req, res, next) => {
   const user = await User.findOrCreate({ where: { username: nickname, email, picture } });
 
   try {
-    res.status(200).send({
+    res.status(200).send(
       user,
-      email,
-      picture
-    });
+    );
   } catch (error) {
     next(error);
   }

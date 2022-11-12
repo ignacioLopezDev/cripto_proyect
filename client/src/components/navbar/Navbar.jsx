@@ -13,6 +13,7 @@ import settingLogo from "./images/gear2.png";
 import Profile from "./user/Profile";
 import { useDispatch } from "react-redux";
 import { newUser } from "../../features/userSlice";
+import { userPost } from "../../features/loginUserSlice";
 
 
 export const Navbar = () => {
@@ -28,6 +29,7 @@ export const Navbar = () => {
   useEffect(() => {
     dispatch(newUser(user))
     // console.log("Use Effect User", user);
+    dispatch(userPost(user))
   }, [user]);
 
   return (

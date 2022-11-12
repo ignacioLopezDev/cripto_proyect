@@ -8,7 +8,7 @@ const SignOutButtom = () => {
     <a 
     class="dropdown-item"
       onClick={() => logout()}>
-      <img src={signOutLogo} alt="signOutLogo" style={{height:30}}/> Sign Out
+      <img id="sign-out" src={signOutLogo} alt="signOutLogo" style={{height:30}}/> Sign Out
     </a>
   );
 };

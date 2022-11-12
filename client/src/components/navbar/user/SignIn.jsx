@@ -9,7 +9,7 @@ const SignInButtom = () => {
         <a 
         class="dropdown-item" 
         onClick={() => loginWithRedirect()}>
-        <img src={signInLogo} alt="sign-in" style={{height:32}} /> Log In
+        <img id="sign-in" src={signInLogo} alt="sign-in" style={{height:32}} /> Log In
       </a>
     )
 }

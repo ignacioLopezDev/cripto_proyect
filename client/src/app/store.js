@@ -5,6 +5,7 @@ import chPercentReducer  from "../features/chPercentSlice";
 import idReducer from "../features/IdSlice";
 import apiDataReducer from "../features/apiSlice";
 import userReducer from "../features/userSlice"
+import loginUserReducer from "../features/loginUserSlice";
 
 
 // STORE DE REDUX
@@ -15,7 +16,8 @@ export const store = configureStore({
     chPercent: chPercentReducer, 
     user:userReducer,
     id: idReducer,
-    api: apiDataReducer
+    api: apiDataReducer,
+    userData: loginUserReducer
     
     // api: apiData
   },

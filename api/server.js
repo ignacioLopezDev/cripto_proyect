@@ -19,7 +19,7 @@ app.use(volleyball);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/cripto_proyect", routes);
+app.use("/api", routes);
 
 // ERROR MIDDLEWATE
 app.use((err, req, res, next) => {

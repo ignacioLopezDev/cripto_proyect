@@ -10,5 +10,8 @@ export const userSlice = createSlice({
     },
   },
 });
+
+
+export const userSelector = (state) => state.currency
 export const { newUser } = userSlice.actions;
 export default userSlice.reducer;

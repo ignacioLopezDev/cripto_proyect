@@ -13,7 +13,10 @@ import { sortSelector } from "./features/sortSlice";
 import { chPercentSelector } from "./features/chPercentSlice";
 import Loader from "./components/Loader";
 
+
 const App = () => {
+
+
   // LOADER AUTH0
   const { isLoading } = useAuth0();
 
