@@ -12,9 +12,9 @@ const {
 favoritesRoutes.post("/", addFavorite);
 
 // DELETE FAVORITE
-favoritesRoutes.delete("/", deleteFavorite);
+favoritesRoutes.delete("/:user/:criptoId", deleteFavorite);
 
 // GET FAVORITES
-favoritesRoutes.get("/",getFavorites)
+favoritesRoutes.get("/:user",getFavorites)
 
 module.exports = favoritesRoutes;

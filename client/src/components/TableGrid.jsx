@@ -66,6 +66,13 @@ const TableGrid = ({ criptoList }) => {
   //     console.log("Arreglo2",favoriteArray)
   // };
 
+  // PRUEBA LOADER
+  const favoritesLoader = useSelector((state) => state.favorites.loading);
+
+  console.log("favorites", favoritesLoader);
+
+  // <div class="spinner-grow spinner-grow-sm" role="status"></div>; // SPINNER
+
   const handleFavorite = async (e) => {
     if (!userLoggued) alert("resgistre señor");
 
@@ -83,12 +90,8 @@ const TableGrid = ({ criptoList }) => {
   // });
 
   useEffect(() => {
-    !userLoggued ? console.log("nada") : dispatch(favoriteGet(userLoggued));
-  }, [userLoggued]);
-
-  useEffect(() => {
     dispatch(favoriteGet(userLoggued));
-  }, []);
+  }, [userLoggued]);
 
   // SEARCH FUNCTION
   const filterCoins = criptoList.filter(
@@ -146,12 +149,8 @@ const TableGrid = ({ criptoList }) => {
                     <img
                       className="favorite-Logo-Hover"
                       onClick={() => {
-                        // handleFavorite({
-                        //   cryptoId: coin.name.toLowerCase().replace(" ", "-"),
-                        //   userId: userLoggued.id,
-                        // });
                         handleFavorite({
-                          cryptoId: coin.name.toLowerCase().replace(" ", "-"),
+                          cryptoId: coin.id,
                           userId: userLoggued,
                         });
                       }}

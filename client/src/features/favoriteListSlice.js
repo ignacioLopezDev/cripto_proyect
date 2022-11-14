@@ -6,7 +6,7 @@ const initialState = {
   loading: false,
 };
 
-export const favoriteGet = createAsyncThunk("api/favorites/:user", async (e) => {
+export const favoriteGet = createAsyncThunk("FAVORITE_GET", async (e) => {
     const user = e.id;
     try {
       console.log("favoriteGet:")   

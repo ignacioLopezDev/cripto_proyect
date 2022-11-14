@@ -6,7 +6,7 @@ const initialState = {
   loading: false,
 };
 
-export const apiData = createAsyncThunk("api/apiData", async (id) => {
+export const apiData = createAsyncThunk("API_DATA", async (id) => {
   try {
     const res = await axios.get(`https://api.coingecko.com/api/v3/coins/${id}`);
     return res.data;

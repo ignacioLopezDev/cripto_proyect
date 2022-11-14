@@ -20,7 +20,7 @@ const addFavorite = async (req, res, next) => {
 
 // DELETE FAVORITE
 const deleteFavorite = async (req, res, next) => {
-  const { user, criptoId } = req.body;
+  const { user, criptoId } = req.params;
   try {
     const checkFavorite = await Favorite.findOne({
       where: { criptoId, userId: user },
@@ -40,18 +40,17 @@ const deleteFavorite = async (req, res, next) => {
 
 // GET FAVORITES
 const getFavorites = async (req, res, next) => {
-  const { user } = req.body;
+  const { user } = req.params;
   try {
     const checkUser = await User.findByPk(user);
     if (!checkUser) res.status(404).send("User does not exist");
 
     const showFavorites = await Favorite.findAll({ where: { userId: user } });
     if (showFavorites.length === 0) {
-      res.status(200).send("The user has no favorites");
+      res.status(200).send(showFavorites);
     } else {
       let result = showFavorites.map((coin) => coin.dataValues.criptoId);
       res.status(200).send(result);
-      console.log("showFavorites:", showFavorites);
     }
   } catch (error) {
     next(error);

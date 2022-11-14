@@ -8,36 +8,25 @@ const initialState = {
   loading: false,
 };
 
-export const favoritePost = createAsyncThunk("/api/favorites", async (e) => {
+export const favoritePost = createAsyncThunk("FAVORITE_POST", async (e) => {
   const user = e.userId.id;
   const criptoId = e.cryptoId;
-  console.log("e:", {
-    user,
-    criptoId,
-  });
   try {
     const res = await axios.post("http://localhost:3001/api/favorites", {
       user,
       criptoId,
     });
-    console.log("favoritePost");
-
     return res.data;
   } catch (error) {
     return error.message;
   }
 });
 
-export const favoriteDelete = createAsyncThunk("/api/favorites/", async (e) => {
+export const favoriteDelete = createAsyncThunk("FAVORITE_DELETE", async (e) => {
   const user = e.userId.id;
   const criptoId = e.cryptoId;
-  console.log("entro al delete:", {
-    user,
-    criptoId,
-  });
   try {
-    await axios.delete(`http://localhost:3001/api/favorites/${user}/${criptoId}`);
-    console.log("favoriteDelete");
+    await axios.delete(`http://localhost:3001/api/favorites/${user}/${criptoId}`); 
   } catch (error) {
     return error.message;
   }

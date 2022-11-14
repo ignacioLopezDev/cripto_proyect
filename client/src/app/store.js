@@ -17,7 +17,7 @@ export const store = configureStore({
     chPercent: chPercentReducer, 
     api: apiDataReducer,
     user: loginUserReducer,
-    favoritePost: favoritePostReducer,
+    favorites: favoritePostReducer,
     id: idReducer,
     favoriteList: favoriteListReducer,
     
