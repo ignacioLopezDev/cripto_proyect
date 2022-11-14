@@ -9,10 +9,12 @@ import { useNavigate } from "react-router-dom";
 import { newId } from "../features/IdSlice";
 import { userSelector } from "../features/loginUserSlice";
 import { favoritePost } from "../features/addFavoriteSlice";
+import { favoriteGet, favoriteList } from "../features/favoriteListSlice";
 import Coin from "./Coin";
 import Searcher from "./Searcher";
 
-import favoriteLogo from "./navbar/images/favorite1.png";
+import favoriteLogo from "./navbar/images/favorite4.png";
+import favoriteLogoOk from "./navbar/images/favorite3.png";
 import favoriteLogoHover from "./navbar/images/favorite2.png";
 
 // *TableGrid LISTADO CRIPTOS
@@ -22,13 +24,17 @@ const TableGrid = ({ criptoList }) => {
 
   // USE SELECTOR - USER LOGGUED
   const userLoggued = useSelector(userSelector);
-  // console.log("userLoggued:", userLoggued);
+  // console.log("userLoggued:", (!userLoggued) ? true : false);
 
   // USE SELECTOR - CHPERCENT
   const chPercent = useSelector(chPercentSelector);
 
   // USE SELECTOR - APIDATA
   const api = useSelector(apiSelector);
+
+  // USE SELECTOR - FAVORITE LIST
+  const favoriteArray = useSelector(favoriteList)
+  console.log('favoriteList:', favoriteArray)
 
   // USE SELECTOR - APIDATA
   const id = useSelector(idSelector);
@@ -50,13 +56,21 @@ const TableGrid = ({ criptoList }) => {
   };
 
   // HANDLEFAVORITE
-  const handleFavorite = (e) => {
-    if (!userLoggued) {
-      alert("registrese");
-    } else {
+  const handleFavorite =  (e) =>  {
+    
+     (!userLoggued) ? alert("registrese")
+     : 
       console.log("EVENTOO", e);
-      dispatch(favoritePost)
-  }};
+       dispatch(favoritePost(e))
+  };
+
+// USE-EFFECT
+useEffect(() => {
+  (!userLoggued) ? console.log("nada") :
+  dispatch(favoriteGet(userLoggued))
+  }
+, [userLoggued],handleFavorite)
+
 
   // ?SEARCH FUNCTION
   const filterCoins = criptoList.filter(
@@ -96,20 +110,21 @@ const TableGrid = ({ criptoList }) => {
                   key={index}
                 >
                   <td className="Fav-logo">
+                    {(favoriteArray.includes(coin.id))? 
                     <img className="favorite-Logo"
-                      // onClick={() => {
-                      //   handleFavorite(
-                      //     coin.name.toLowerCase().replace(" ", "-")
-                      //   );
-                      // }}
+                    src={favoriteLogoOk}
+                    alt="favoriteLogo"/>
+
+                    :<img className="favorite-Logo"
                       src={favoriteLogo}
                       alt="favoriteLogo"
-                    />
-                        <img className="favorite-Logo-Hover"
+                    />}
+                    
+                   <img className="favorite-Logo-Hover"
                       onClick={() => {
                         handleFavorite({
                           "cryptoId":coin.name.toLowerCase().replace(" ", "-"),
-                          "userId":userLoggued.id}
+                          "userId":userLoggued}
                         );
                       }}
                       src={favoriteLogoHover}

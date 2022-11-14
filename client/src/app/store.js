@@ -6,6 +6,7 @@ import idReducer from "../features/IdSlice";
 import apiDataReducer from "../features/apiSlice";
 import loginUserReducer from "../features/loginUserSlice";
 import  favoritePostReducer  from "../features/addFavoriteSlice";
+import  favoriteListReducer  from "../features/favoriteListSlice";
 
 
 // STORE DE REDUX
@@ -18,6 +19,7 @@ export const store = configureStore({
     user: loginUserReducer,
     favoritePost: favoritePostReducer,
     id: idReducer,
+    favoriteList: favoriteListReducer,
     
     // api: apiData
   },
