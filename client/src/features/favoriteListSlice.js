@@ -6,13 +6,13 @@ const initialState = {
   loading: false,
 };
 
-export const favoriteGet = createAsyncThunk("api/favorites/:user", async (userLoggued) => {
-    const user = userLoggued.id;
+export const favoriteGet = createAsyncThunk("api/favorites/:user", async (e) => {
+    const user = e.id;
     try {
-      console.log("favoriteGet:",user)   
+      console.log("favoriteGet:")   
 
     const res = await axios.get(`http://localhost:3001/api/favorites/${user}`);
-    console.log("res:",res.data)
+    // console.log("res:",res.data)
     return res.data;
   } catch (error) {
     return error.message;

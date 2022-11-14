@@ -170,7 +170,7 @@ code {
 /* -------- HomePage-Grid --------*/
 .HomePage {
   display: grid;
-  grid-template-columns: 50% auto;
+  grid-template-columns: 100% auto;
 }
 .HomePage > div {
   padding: 20px;

@@ -8,7 +8,7 @@ import { idSelector } from "../features/IdSlice";
 import { useNavigate } from "react-router-dom";
 import { newId } from "../features/IdSlice";
 import { userSelector } from "../features/loginUserSlice";
-import { favoritePost } from "../features/addFavoriteSlice";
+import { favoriteDelete, favoritePost } from "../features/addFavoriteSlice";
 import { favoriteGet, favoriteList } from "../features/favoriteListSlice";
 import Coin from "./Coin";
 import Searcher from "./Searcher";
@@ -33,8 +33,8 @@ const TableGrid = ({ criptoList }) => {
   const api = useSelector(apiSelector);
 
   // USE SELECTOR - FAVORITE LIST
-  const favoriteArray = useSelector(favoriteList)
-  console.log('favoriteList:', favoriteArray)
+  let favoriteArray = useSelector(favoriteList);
+  // console.log("favoriteList:", favoriteArray);
 
   // USE SELECTOR - APIDATA
   const id = useSelector(idSelector);
@@ -56,23 +56,41 @@ const TableGrid = ({ criptoList }) => {
   };
 
   // HANDLEFAVORITE
-  const handleFavorite =  (e) =>  {
-    
-     (!userLoggued) ? alert("registrese")
-     : 
-      console.log("EVENTOO", e);
-       dispatch(favoritePost(e))
+  // const handleFavorite = (e) => {
+  //   console.log(e.cryptoId)
+  //   console.log("Arreglo",favoriteArray)
+  //   const position = favoriteArray.indexOf(e.cryptoId);
+  //   favoriteArray.includes(e.cryptoId)
+  //     ? favoriteArray.splice(position, 1)
+  //     : favoriteArray = [...favoriteArray, e.cryptoId];
+  //     console.log("Arreglo2",favoriteArray)
+  // };
+
+  const handleFavorite = async (e) => {
+    if (!userLoggued) alert("resgistre señor");
+
+    favoriteArray.includes(e.cryptoId)
+      ? await dispatch(favoriteDelete(e))
+      : await dispatch(favoritePost(e));
+
+    await dispatch(favoriteGet(userLoggued));
+    //  dispatch(favoritePost(userLoggued))
   };
 
-// USE-EFFECT
-useEffect(() => {
-  (!userLoggued) ? console.log("nada") :
-  dispatch(favoriteGet(userLoggued))
-  }
-, [userLoggued],handleFavorite)
+  // USE-EFFECT
+  // useEffect(() => {
+  //   console.log("ANDUVO EL useEffect")
+  // });
 
+  useEffect(() => {
+    !userLoggued ? console.log("nada") : dispatch(favoriteGet(userLoggued));
+  }, [userLoggued]);
 
-  // ?SEARCH FUNCTION
+  useEffect(() => {
+    dispatch(favoriteGet(userLoggued));
+  }, []);
+
+  // SEARCH FUNCTION
   const filterCoins = criptoList.filter(
     (coin) =>
       coin.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -109,39 +127,53 @@ useEffect(() => {
                   // }}
                   key={index}
                 >
+                  {/* IMAGEEEEN */}
                   <td className="Fav-logo">
-                    {(favoriteArray.includes(coin.id))? 
-                    <img className="favorite-Logo"
-                    src={favoriteLogoOk}
-                    alt="favoriteLogo"/>
+                    {favoriteArray.includes(coin.id) ? (
+                      <img
+                        className="favorite-Logo"
+                        src={favoriteLogoOk}
+                        alt="favoriteLogo"
+                      />
+                    ) : (
+                      <img
+                        className="favorite-Logo"
+                        src={favoriteLogo}
+                        alt="favoriteLogo"
+                      />
+                    )}
 
-                    :<img className="favorite-Logo"
-                      src={favoriteLogo}
-                      alt="favoriteLogo"
-                    />}
-                    
-                   <img className="favorite-Logo-Hover"
+                    <img
+                      className="favorite-Logo-Hover"
                       onClick={() => {
+                        // handleFavorite({
+                        //   cryptoId: coin.name.toLowerCase().replace(" ", "-"),
+                        //   userId: userLoggued.id,
+                        // });
                         handleFavorite({
-                          "cryptoId":coin.name.toLowerCase().replace(" ", "-"),
-                          "userId":userLoggued}
-                        );
+                          cryptoId: coin.name.toLowerCase().replace(" ", "-"),
+                          userId: userLoggued,
+                        });
                       }}
                       src={favoriteLogoHover}
                       alt="favoriteLogo"
                     />
                   </td>
-                  <td className="text-muted text-center tableprop"
-                  onClick={() => {
-                    handleClick(coin.name.toLowerCase().replace(" ", "-"));
-                  }}>
+                  <td
+                    className="text-muted text-center tableprop"
+                    onClick={() => {
+                      handleClick(coin.name.toLowerCase().replace(" ", "-"));
+                    }}
+                  >
                     {coin.market_cap_rank}
                   </td>
 
-                  <td className="tableprop"
-                  onClick={() => {
-                    handleClick(coin.name.toLowerCase().replace(" ", "-"));
-                  }}>
+                  <td
+                    className="tableprop"
+                    onClick={() => {
+                      handleClick(coin.name.toLowerCase().replace(" ", "-"));
+                    }}
+                  >
                     <img
                       src={coin.image}
                       alt={coin.name}
@@ -149,9 +181,10 @@ useEffect(() => {
                     />
                   </td>
                   <td
-                  onClick={() => {
-                    handleClick(coin.name.toLowerCase().replace(" ", "-"));
-                  }}>
+                    onClick={() => {
+                      handleClick(coin.name.toLowerCase().replace(" ", "-"));
+                    }}
+                  >
                     <div>
                       <span>{coin.name}</span>
                       <div></div>
@@ -160,11 +193,12 @@ useEffect(() => {
                       </span>
                     </div>
                   </td>
-                  <td className="tableprop text-end"
-                  onClick={() => {
-                    handleClick(coin.name.toLowerCase().replace(" ", "-"));
-                  }}>
-                    
+                  <td
+                    className="tableprop text-end"
+                    onClick={() => {
+                      handleClick(coin.name.toLowerCase().replace(" ", "-"));
+                    }}
+                  >
                     {coin.current_price.toLocaleString("es-MX")}
                   </td>
                   <td

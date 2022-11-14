@@ -19,7 +19,7 @@ export const Navbar = () => {
   // AUTH0 AUTENTICATION
   const { isAuthenticated, user, isLoading } = useAuth0();
   // console.log(isAuthenticated);
-  console.log("USUARIO",user);
+  // console.log("USUARIO",user);
 
   // USE DISPATCH
   const dispatch = useDispatch()
