@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// *REDUX FEAUTRE - CHANGE PERCENT NAVBAR
-
+// SLICE
 export const chPercentSlice = createSlice({
   name: "chPercent",
   initialState: "24h",
@@ -13,6 +12,6 @@ export const chPercentSlice = createSlice({
   },
 });
 
-export const chPercentSelector = (state) => state.chPercent
+export const chPercentSelector = (state) => state.chPercent;
 export const { editChPercent } = chPercentSlice.actions;
 export default chPercentSlice.reducer;

@@ -1,13 +1,12 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { useDispatch } from "react-redux";
-import { favoriteGet } from "./favoriteListSlice";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const initialState = {
   data: {},
   loading: false,
 };
 
+// ASYNCTHUNK FAVORITE POST
 export const favoritePost = createAsyncThunk("FAVORITE_POST", async (e) => {
   const user = e.userId.id;
   const criptoId = e.cryptoId;
@@ -22,16 +21,20 @@ export const favoritePost = createAsyncThunk("FAVORITE_POST", async (e) => {
   }
 });
 
+// ASYNCTHUNK FAVORITE DELETE
 export const favoriteDelete = createAsyncThunk("FAVORITE_DELETE", async (e) => {
   const user = e.userId.id;
   const criptoId = e.cryptoId;
   try {
-    await axios.delete(`http://localhost:3001/api/favorites/${user}/${criptoId}`); 
+    await axios.delete(
+      `http://localhost:3001/api/favorites/${user}/${criptoId}`
+    );
   } catch (error) {
     return error.message;
   }
 });
 
+// SLICE
 export const favoritePostReducer = createSlice({
   name: "favoriteCoins",
   initialState,

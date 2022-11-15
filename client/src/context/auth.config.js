@@ -1,3 +1,5 @@
+// .ENV data from AUTH0
+
 const { config } = require("dotenv");
 config();
 

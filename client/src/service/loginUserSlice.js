@@ -1,12 +1,12 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   data: {},
   loading: false,
 };
 
-export const userPost = createAsyncThunk("/api/signup", async (user) => {
+export const loginPost = createAsyncThunk("/api/signup", async (user) => {
   const { nickname, email, picture } = user;
   try {
     const res = await axios.post("http://localhost:3001/api/signup", {
@@ -23,14 +23,14 @@ export const loginUserReducer = createSlice({
   initialState,
   reducer: {},
   extraReducers: {
-    [userPost.pending]: (state) => {
+    [loginPost.pending]: (state) => {
         state.loading = true;
       },
-      [userPost.fulfilled]: (state, action) => {
+      [loginPost.fulfilled]: (state, action) => {
         state.loading = false;
         state.data = action.payload;
       },
-      [userPost.rejected]: (state) => {
+      [loginPost.rejected]: (state) => {
         state.loading = false;
       },
     

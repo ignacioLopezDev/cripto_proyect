@@ -1,11 +1,12 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const initialState = {
   data: [],
   loading: false,
 };
 
+// ASYNCTHUNK GET API DATA
 export const apiData = createAsyncThunk("API_DATA", async (id) => {
   try {
     const res = await axios.get(`https://api.coingecko.com/api/v3/coins/${id}`);
@@ -15,6 +16,7 @@ export const apiData = createAsyncThunk("API_DATA", async (id) => {
   }
 });
 
+// SLICE
 export const apiDataReducer = createSlice({
   name: "api",
   initialState,
@@ -35,4 +37,3 @@ export const apiDataReducer = createSlice({
 
 export const apiSelector = (state) => state.api;
 export default apiDataReducer.reducer;
-
