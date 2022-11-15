@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { apiData } from "../features/apiSlice";
-import { chPercentSelector } from "../features/chPercentSlice";
-import { apiSelector } from "../features/apiSlice";
-import { idSelector } from "../features/IdSlice";
+import { apiData } from "../../service/apiSlice";
+import { chPercentSelector } from "../../service/chPercentSlice";
+import { apiSelector } from "../../service/apiSlice";
+import { idSelector } from "../../service/IdSlice";
 import { useNavigate } from "react-router-dom";
-import { newId } from "../features/IdSlice";
-import { userSelector } from "../features/loginUserSlice";
-import { favoriteDelete, favoritePost } from "../features/addFavoriteSlice";
-import { favoriteGet, favoriteList } from "../features/favoriteListSlice";
-import Coin from "./Coin";
-import Searcher from "./Searcher";
+import { newId } from "../../service/IdSlice";
+import { userSelector } from "../../service/loginUserSlice";
+import { favoriteDelete, favoritePost } from "../../service/addFavoriteSlice";
+import { favoriteGet, favoriteList } from "../../service/favoriteListSlice";
+import Coin from "../coinDetail/Coin";
+import Searcher from "./searcher";
 
-import favoriteLogo from "./navbar/images/favorite4.png";
-import favoriteLogoOk from "./navbar/images/favorite3.png";
-import favoriteLogoHover from "./navbar/images/favorite2.png";
+
+import favoriteLogo from "../../assets/images/favorite0.png";
+import favoriteLogoHover from "../../assets/images/favorite1.png";
+import favoriteLogoOk from "../../assets/images/favorite2.png";
 
 // *TableGrid LISTADO CRIPTOS
 const TableGrid = ({ criptoList }) => {

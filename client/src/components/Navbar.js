@@ -2,18 +2,15 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 
 import { useAuth0 } from "@auth0/auth0-react";
-import ChPercentOptions from "./configurations/ChPercentOptions";
-import CurrencyOptions from "./configurations/CurrencyOptions";
-import SortOptions from "./configurations/SortOptions";
-import SignIn from "./user/SignIn";
-import SignOut from "./user/SignOut";
+import SignIn from "./buttoms/SignIn";
+import SignOut from "./buttoms/SignOut";
 
-import userLogo from "./images/usuario2.png";
-import settingLogo from "./images/gear2.png";
-import Profile from "./user/Profile";
+import Profile from "./buttoms/Profile";
 import { useDispatch } from "react-redux";
-import { userPost } from "../../features/loginUserSlice";
+import { userPost } from "../service/loginUserSlice";
 
+import userLogo from "../assets/images/user2.png";
+import settingLogo from "../assets/images/gear2.png";
 
 export const Navbar = () => {
   // AUTH0 AUTENTICATION

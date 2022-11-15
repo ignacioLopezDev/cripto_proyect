@@ -5,13 +5,13 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
-import { Navbar } from "./components/navbar/Navbar";
-import TableGrid from "./components/TableGrid";
-import Coin from "./components/Coin";
-import { currencySelector } from "./features/currencySlice";
-import { sortSelector } from "./features/sortSlice";
-import { chPercentSelector } from "./features/chPercentSlice";
-import Loader from "./components/Loader";
+import { Navbar } from "./components/Navbar";
+import TableGrid from "./pages/coinTable/coinTable";
+import Coin from "./pages/coinDetail/Coin";
+import { currencySelector } from "./service/currencySlice";
+import { sortSelector } from "./service/sortSlice";
+import { chPercentSelector } from "./service/chPercentSlice";
+import Loader from "./components/ui/loader";
 
 
 const App = () => {

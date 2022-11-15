@@ -1,4 +1,5 @@
-import profileLogo from "../images/usuario.png"
+import profileLogo from "../../assets/images/user1.png"
+
 
 
 const Profile = () => {

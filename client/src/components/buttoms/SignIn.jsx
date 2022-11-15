@@ -1,5 +1,6 @@
 import {useAuth0} from "@auth0/auth0-react"
-import signInLogo from "../images/sign-in.png"
+import signInLogo from "../../assets/images/sign-in.png"
+
 
 const SignInButtom = () => {
     const {loginWithRedirect, user} = useAuth0()

@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
-import { apiSelector } from "../features/apiSlice";
+import { apiSelector } from "../../service/apiSlice";
 // import { idSelector } from "../features/Id";
 import { useDispatch } from "react-redux";
-import { apiData } from "../features/apiSlice";
-import { newId } from "../features/IdSlice";
+import { apiData } from "../../service/apiSlice";
+import { newId } from "../../service/IdSlice";
 
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";

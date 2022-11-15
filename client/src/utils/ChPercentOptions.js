@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { editChPercent } from "../../../features/chPercentSlice";
+import { editChPercent } from "../service/chPercentSlice";
 
 const ChPercentOptions = () => {
   // *TIPOS DE PERCENTS%
