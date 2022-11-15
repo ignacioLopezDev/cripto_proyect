@@ -7,11 +7,29 @@ const addFavorite = async (req, res, next) => {
   try {
     const checkUser = await User.findByPk(user);
     if (!checkUser) {
-      res.status(404).send("User does not found");
+      res.status(404).send("User not found");
     } else {
       const add = await Favorite.create({ criptoId });
       add.setUser(user);
       res.status(201).send(add);
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
+// GET FAVORITES
+const getFavorites = async (req, res, next) => {
+  const { user } = req.params;
+  try {
+    const checkUser = await User.findByPk(user);
+    if (!checkUser) res.status(404).send("User not exist");
+    const showFavorites = await Favorite.findAll({ where: { userId: user } });
+    if (showFavorites.length === 0) {
+      res.status(200).send(showFavorites);
+    } else {
+      let result = showFavorites.map((coin) => coin.dataValues.criptoId);
+      res.status(200).send(result);
     }
   } catch (error) {
     next(error);
@@ -28,29 +46,10 @@ const deleteFavorite = async (req, res, next) => {
     if (!checkFavorite) {
       res.status(404).send("This favorite does not exist");
     } else {
-      const destroy = await Favorite.destroy({
+      await Favorite.destroy({
         where: { criptoId, userId: user },
       });
       res.status(201).send("Favorite Deleted");
-    }
-  } catch (error) {
-    next(error);
-  }
-};
-
-// GET FAVORITES
-const getFavorites = async (req, res, next) => {
-  const { user } = req.params;
-  try {
-    const checkUser = await User.findByPk(user);
-    if (!checkUser) res.status(404).send("User does not exist");
-
-    const showFavorites = await Favorite.findAll({ where: { userId: user } });
-    if (showFavorites.length === 0) {
-      res.status(200).send(showFavorites);
-    } else {
-      let result = showFavorites.map((coin) => coin.dataValues.criptoId);
-      res.status(200).send(result);
     }
   } catch (error) {
     next(error);

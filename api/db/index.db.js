@@ -18,7 +18,7 @@ const sequelize = new S({
   logging: false,
   dialectOptions: {
     ssl: {
-      require: true, // This will help you. But you will see nwe error
+      require: true,
       rejectUnauthorized: false, // This line will fix new error
     },
   },

@@ -1,17 +1,14 @@
 const express = require("express");
 const router = express.Router();
 
+// IMPORT ROUTES
 const authRoutes = require("./authRoutes");
 const favoritesRoutes = require("./favoritesRoutes");
-const { welcome } = require("../controllers/welcome");
-
 
 // AUTH ROUTES
 router.use("/", authRoutes);
 
 // FAVORITES ROUTES
-router.use("/favorites", favoritesRoutes)
-
-router.get("/", welcome);
+router.use("/favorites", favoritesRoutes);
 
 module.exports = router;

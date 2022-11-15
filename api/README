@@ -1,0 +1,19 @@
+CRIPTO PROYECT BACK: API/
+
+BACK:
+    -NODEJS
+    -EXPRESS
+
+DB:
+    -POSTGRESQL IN CLOUD BY HEROKU SERVER - https://dashboard.heroku.com/apps
+
+ORM:
+    -SEQUELIZE
+
+AUTH:
+    -AUTH0(front) - // https://auth0.com/blog/complete-guide-to-react-user-authentication/
+    -JWT BK OPTION
+
+ROUTES
+    - AUTH
+    - FAVORITES
