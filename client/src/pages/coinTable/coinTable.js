@@ -66,11 +66,11 @@ const TableGrid = ({ criptoList }) => {
               {filterCoins.map((coin, index) => (
                 <tr key={index}>
                   <FavoritesBookmark coin={coin} />
-                  <Ranking coin={coin} />
-                  <Image coin={coin} />
-                  <Name coin={coin} />
-                  <Price coin={coin} />
-                  <Percent coin={coin} />
+                  <Ranking coin={coin} handleClick={handleClick} />
+                  <Image coin={coin} handleClick={handleClick} />
+                  <Name coin={coin} handleClick={handleClick} />
+                  <Price coin={coin} handleClick={handleClick} />
+                  <Percent coin={coin} handleClick={handleClick} />
                 </tr>
               ))}
             </tbody>
