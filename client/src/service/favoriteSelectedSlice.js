@@ -1,3 +1,5 @@
+// Favorite selected to post or delet from de db
+
 import axios from "axios";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
@@ -65,4 +67,5 @@ export const favoritePostReducer = createSlice({
   },
 });
 
+export const favoriteSelected = (state) => state.favoriteSelected;
 export default favoritePostReducer.reducer;

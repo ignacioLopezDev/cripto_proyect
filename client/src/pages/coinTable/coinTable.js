@@ -1,107 +1,68 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { apiData } from "../../service/apiSlice";
-import { chPercentSelector } from "../../service/chPercentSlice";
-import { apiSelector } from "../../service/apiSlice";
-import { idSelector } from "../../service/IdSlice";
 import { useNavigate } from "react-router-dom";
-import { newId } from "../../service/IdSlice";
-import { userSelector } from "../../service/loginUserSlice";
-import { favoriteDelete, favoritePost } from "../../service/addFavoriteSlice";
-import { favoriteGet, favoriteList } from "../../service/favoriteListSlice";
-import Coin from "../coinDetail/Coin";
+
+// COMPONENTS
 import Searcher from "./searcher";
 
+// REDUX SLICE
+import { apiData } from "../../service/apiSlice";
+import { chPercentSelector } from "../../service/apiChPercentSlice";
+import { newId } from "../../service/idSlice";
+import { userSelector } from "../../service/loginUserSlice";
+import {
+  favoriteDelete,
+  favoritePost,
+  favoriteSelected,
+} from "../../service/favoriteSelectedSlice";
+import { favoriteGet, favoriteList } from "../../service/favoriteListSlice";
 
+// IMAGES
 import favoriteLogo from "../../assets/images/favorite0.png";
 import favoriteLogoHover from "../../assets/images/favorite1.png";
 import favoriteLogoOk from "../../assets/images/favorite2.png";
 
-// *TableGrid LISTADO CRIPTOS
 const TableGrid = ({ criptoList }) => {
-  // DISPATCH
-  const dispatch = useDispatch();
-
-  // USE SELECTOR - USER LOGGUED
-  const userLoggued = useSelector(userSelector);
-  // console.log("userLoggued:", (!userLoggued) ? true : false);
-
-  // USE SELECTOR - CHPERCENT
-  const chPercent = useSelector(chPercentSelector);
-
-  // USE SELECTOR - APIDATA
-  const api = useSelector(apiSelector);
-
-  // USE SELECTOR - FAVORITE LIST
-  let favoriteArray = useSelector(favoriteList);
-  // console.log("favoriteList:", favoriteArray);
-
-  // USE SELECTOR - APIDATA
-  const id = useSelector(idSelector);
-
   // USE NAVIGATE
   const navigate = useNavigate();
 
-  // USE STATE - ID SELECTED
-  const [idSelected, setIdSelected] = useState();
+  // DISPATCH
+  const dispatch = useDispatch();
 
-  // * USE STATE SEARCH
-  const [search, setSearch] = useState("");
+  // USE SELECTOR
+  const userLoggued = useSelector(userSelector);
+  const chPercent = useSelector(chPercentSelector);
+  let favoriteArray = useSelector(favoriteList);
 
-  // HANDLECLICK
+    // HANDLECLICK
   const handleClick = (id) => {
     dispatch(apiData(id));
     dispatch(newId(id));
     navigate(`/cripto_proyect/coin/${id}`);
   };
-
+  
   // HANDLEFAVORITE
-  // const handleFavorite = (e) => {
-  //   console.log(e.cryptoId)
-  //   console.log("Arreglo",favoriteArray)
-  //   const position = favoriteArray.indexOf(e.cryptoId);
-  //   favoriteArray.includes(e.cryptoId)
-  //     ? favoriteArray.splice(position, 1)
-  //     : favoriteArray = [...favoriteArray, e.cryptoId];
-  //     console.log("Arreglo2",favoriteArray)
-  // };
-
-  // PRUEBA LOADER
-  const favoritesLoader = useSelector((state) => state.favorites.loading);
-
-  console.log("favorites", favoritesLoader);
-
-  // <div class="spinner-grow spinner-grow-sm" role="status"></div>; // SPINNER
-
   const handleFavorite = async (e) => {
     if (!userLoggued) alert("resgistre señor");
-
+    
     favoriteArray.includes(e.cryptoId)
-      ? await dispatch(favoriteDelete(e))
-      : await dispatch(favoritePost(e));
-
+    ? await dispatch(favoriteDelete(e))
+    : await dispatch(favoritePost(e));
+    
     await dispatch(favoriteGet(userLoggued));
-    //  dispatch(favoritePost(userLoggued))
   };
 
-  // USE-EFFECT
-  // useEffect(() => {
-  //   console.log("ANDUVO EL useEffect")
-  // });
+  // USE STATE SEARCH - catch de onChange from Searcher component
+  const [search, setSearch] = useState("");
 
-  useEffect(() => {
-    dispatch(favoriteGet(userLoggued));
-  }, [userLoggued]);
-
-  // SEARCH FUNCTION
+  // SEARCH FUNCTION - Filtercoin will be mapped
   const filterCoins = criptoList.filter(
     (coin) =>
       coin.name.toLowerCase().includes(search.toLowerCase()) ||
       coin.symbol.toLowerCase().includes(search.toLowerCase())
   );
 
-  // CONSTRUCCION TITULO DE "price_change"
+  // ! CONSTRUCCION TITULO DE "price_change"
   const percent = `price_change_percentage_${chPercent}_in_currency`;
 
   return (
@@ -125,12 +86,7 @@ const TableGrid = ({ criptoList }) => {
             </thead>
             <tbody>
               {filterCoins.map((coin, index) => (
-                <tr
-                  // onClick={() => {
-                  //   handleClick(coin.name.toLowerCase().replace(" ", "-"));
-                  // }}
-                  key={index}
-                >
+                <tr key={index}>
                   {/* IMAGEEEEN */}
                   <td className="Fav-logo">
                     {favoriteArray.includes(coin.id) ? (

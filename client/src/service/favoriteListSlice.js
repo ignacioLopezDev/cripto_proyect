@@ -1,3 +1,5 @@
+// Get users's favorites from db
+
 import axios from "axios";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
@@ -6,12 +8,10 @@ const initialState = {
   loading: false,
 };
 
-// ASYNCTHUNK FAVORITE POST
+// ASYNCTHUNK FAVORITE GET
 export const favoriteGet = createAsyncThunk("FAVORITE_GET", async (e) => {
-    const user = e.id;
-    try {
-      console.log("favoriteGet:")   
-
+  const user = e.id;
+  try {
     const res = await axios.get(`http://localhost:3001/api/favorites/${user}`);
     return res.data;
   } catch (error) {
@@ -38,5 +38,5 @@ export const favoriteListReducer = createSlice({
   },
 });
 
-export const favoriteList = (state) => state.favoriteList.data
+export const favoriteList = (state) => state.favoriteList.data;
 export default favoriteListReducer.reducer;

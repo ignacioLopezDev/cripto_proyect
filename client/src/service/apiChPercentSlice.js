@@ -12,6 +12,6 @@ export const chPercentSlice = createSlice({
   },
 });
 
-export const chPercentSelector = (state) => state.chPercent;
+export const chPercentSelector = (state) => state.apiChPercent;
 export const { editChPercent } = chPercentSlice.actions;
 export default chPercentSlice.reducer;

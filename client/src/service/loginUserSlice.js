@@ -1,3 +1,5 @@
+// Post user in db
+
 import axios from "axios";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
@@ -6,8 +8,10 @@ const initialState = {
   loading: false,
 };
 
-export const loginPost = createAsyncThunk("/api/signup", async (user) => {
+// ASYNCTHUNK USER POST
+export const loginPost = createAsyncThunk("POST_USER_DB", async (user) => {
   const { nickname, email, picture } = user;
+  
   try {
     const res = await axios.post("http://localhost:3001/api/signup", {
       nickname,email,picture,

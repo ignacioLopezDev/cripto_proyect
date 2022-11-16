@@ -3,7 +3,7 @@ import { apiSelector } from "../../service/apiSlice";
 // import { idSelector } from "../features/Id";
 import { useDispatch } from "react-redux";
 import { apiData } from "../../service/apiSlice";
-import { newId } from "../../service/IdSlice";
+import { newId } from "../../service/idSlice";
 
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";

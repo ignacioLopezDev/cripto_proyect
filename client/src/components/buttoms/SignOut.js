@@ -1,4 +1,6 @@
 import { useAuth0 } from "@auth0/auth0-react";
+
+// IMAGES
 import signOutLogo from "../../assets/images/sign-out.png";
 
 const SignOutButtom = () => {

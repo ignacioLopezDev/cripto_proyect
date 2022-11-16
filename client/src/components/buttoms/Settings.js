@@ -1,3 +1,4 @@
+// IMAGES
 import settingLogo from "../../assets/images/gear2.png";
 
 

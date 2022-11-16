@@ -1,3 +1,4 @@
+// IMAGES
 import profileLogo from "../../assets/images/user1.png";
 
 const Profile = () => {

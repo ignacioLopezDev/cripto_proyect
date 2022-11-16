@@ -8,9 +8,9 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { Navbar } from "./components/Navbar";
 import TableGrid from "./pages/coinTable/coinTable";
 import Coin from "./pages/coinDetail/Coin";
-import { currencySelector } from "./service/currencySlice";
-import { sortSelector } from "./service/sortSlice";
-import { chPercentSelector } from "./service/chPercentSlice";
+import { currencySelector } from "./service/apiCurrencySlice";
+import { sortSelector } from "./service/apiSortSlice";
+import { chPercentSelector } from "./service/apiChPercentSlice";
 import Loader from "./components/ui/loader";
 
 
