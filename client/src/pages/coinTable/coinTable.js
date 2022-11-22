@@ -35,12 +35,12 @@ const TableGrid = ({ criptoList }) => {
     navigate(`/cripto_proyect/coin/${id}`);
   };
 
-  //USE-EFFECT
+  //USEEFFECT
   useEffect(() => {
     dispatch(favoriteGet(userLoggued));
   }, [userLoggued]);
 
-  // USE STATE SEARCH - catch de onChange from Searcher component
+  // USESTATE SEARCH - catch de onChange from Searcher component
   const [search, setSearch] = useState("");
 
   // SEARCH FUNCTION - Filtercoin will be mapped
@@ -51,7 +51,6 @@ const TableGrid = ({ criptoList }) => {
   );
 
   return (
-    // <div className="">
     <div className="HomePage">
       <div id="HP-Grid-1">
         <div id="HP-Grid-1-1">
