@@ -13,10 +13,7 @@ import { sortSelector } from "./service/apiSortSlice";
 import { chPercentSelector } from "./service/apiChPercentSlice";
 import Loader from "./components/ui/loader";
 
-
 const App = () => {
-
-
   // LOADER AUTH0
   const { isLoading } = useAuth0();
 
@@ -56,7 +53,9 @@ const App = () => {
   return (
     <div>
       <BrowserRouter>
-        <Link to="/" className="cryptoApp fixed-top">Crypto App</Link>
+        <Link to="/" className="cryptoApp fixed-top">
+          Crypto App
+        </Link>
         <Navbar />
         {isLoading ? <Loader /> : <></>}
 
@@ -67,6 +66,7 @@ const App = () => {
             path="/"
             element={<TableGrid criptoList={criptoList} />}
           />
+
           <Route
             // path="/cripto_proyect/coin/:id"
             path="/coin/:id"

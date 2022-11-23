@@ -24,7 +24,29 @@
   color: #e0e0e0ff;
 }
 
+/* -------- FONTS --------*/
+
+/* font-family: 'Rubik', sans-serif; */
+/* @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap"); */
+/* https://fonts.google.com/specimen/Rubik?preview.text=Crypto%20App%20%20%20%20%20Market%20Converter%20Bitcoin&preview.text_type=custom&subset=latin */
+
+
+/* font-family: 'DM Sans', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+https://fonts.google.com/specimen/DM+Sans?subset=latin
+
+
+font-family: 'Baloo 2', cursive;
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
+https://fonts.google.com/specimen/Baloo+2?preview.text=Crypto%20App%20%20%20%20%20Market%20Converter%20Bitcoin&preview.text_type=custom&subset=latin
+
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Tai+Le&display=swap');
+font-family: 'Noto Sans Tai Le', sans-serif;
+https://fonts.google.com/noto/specimen/Noto+Sans+Tai+Le?preview.text=Crypto%20App%20%20%20%20%20Market%20Converter%20Bitcoin&preview.text_type=custom&subset=latin */
+
 /*-------- GENERAL --------*/
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -170,7 +192,7 @@ code {
 /* -------- HomePage-Grid --------*/
 .HomePage {
   display: grid;
-  grid-template-columns: 100% auto;
+  grid-template-columns: 50% auto;
 }
 .HomePage > div {
   padding: 20px;
@@ -250,21 +272,20 @@ code {
   vertical-align: middle;
 }
 
-
-.favorite-Logo{
-  position:relative;
+.favorite-Logo {
+  position: relative;
   height: 2em;
 }
 
 .favorite-Logo-Hover {
-  position:absolute;
+  position: absolute;
   top: 16px;
   left: 10px;
   height: 2em;
 
   object-fit: contain;
   opacity: 0;
-  transition: opacity .2s;
+  transition: opacity 0.2s;
 }
 
 tr:hover .favorite-Logo-Hover {

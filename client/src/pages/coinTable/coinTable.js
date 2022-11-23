@@ -18,6 +18,9 @@ import { newId } from "../../service/idSlice";
 import { userSelector } from "../../service/loginUserSlice";
 import { favoriteGet } from "../../service/favoriteListSlice";
 
+import { Start } from "../../components/ui/start";
+
+
 const TableGrid = ({ criptoList }) => {
   // USE NAVIGATE
   const navigate = useNavigate();
@@ -77,7 +80,7 @@ const TableGrid = ({ criptoList }) => {
         </div>
       </div>
       <div id="HP-Grid-2">
-        <div id="HP-Grid-2-1">hola</div>
+        <div id="HP-Grid-2-1"><Start/></div>
         <div id="HP-Grid-2-2">chau</div>
       </div>
     </div>
