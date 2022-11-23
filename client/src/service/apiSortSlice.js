@@ -13,6 +13,6 @@ export const sortSlice = createSlice({
   },
 });
 
-export const sortSelector = (state) => state.apiSort
+export const sortSelector = (state) => state.apiSort;
 export const { editSort } = sortSlice.actions;
 export default sortSlice.reducer;

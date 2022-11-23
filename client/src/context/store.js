@@ -9,6 +9,7 @@ import apiDataReducer from "../service/apiSlice";
 import loginUserReducer from "../service/loginUserSlice";
 import favoritePostReducer from "../service/favoriteSelectedSlice";
 import favoriteListReducer from "../service/favoriteListSlice";
+import apiMainReducer from "../service/apiMain"
 
 // REDUX STORE
 export const store = configureStore({
@@ -17,6 +18,7 @@ export const store = configureStore({
     favoriteList: favoriteListReducer,
     favoriteSelected: favoritePostReducer,
     api: apiDataReducer,
+    apiMain: apiMainReducer,
     apiCurrency: currencyReducer,
     apiSort: sortReducer,
     apiChPercent: chPercentReducer,

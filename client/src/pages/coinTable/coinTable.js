@@ -16,20 +16,30 @@ import { Percent } from "./tdPercent";
 import { apiData } from "../../service/apiSlice";
 import { newId } from "../../service/idSlice";
 import { userSelector } from "../../service/loginUserSlice";
+import { apiMainSelector } from "../../service/apiMain";
 import { favoriteGet } from "../../service/favoriteListSlice";
+import { currencySelector } from "../../service/apiCurrencySlice";
+import { sortSelector } from "../../service/apiSortSlice";
+import { chPercentSelector } from "../../service/apiChPercentSlice";
+import { apiGet } from "../../service/apiMain";
 
-import { Start } from "../../components/ui/start";
 
 
-const TableGrid = ({ criptoList }) => {
+
+const TableGrid = () => {
   // USE NAVIGATE
   const navigate = useNavigate();
 
   // DISPATCH
   const dispatch = useDispatch();
 
-  // USE SELECTOR
+  // USE SELECTOR DEL USUARIO UNA VEZ QUE SE LOGUEE
   const userLoggued = useSelector(userSelector);
+
+  // USE SELECTOR - API PROPIETIES
+  const currency = useSelector(currencySelector);
+  const sort = useSelector(sortSelector);
+  const chPercent = useSelector(chPercentSelector);
 
   // HANDLECLICK
   const handleClick = (id) => {
@@ -43,10 +53,22 @@ const TableGrid = ({ criptoList }) => {
     dispatch(favoriteGet(userLoggued));
   }, [userLoggued]);
 
+  //USEEFFECT - RENDERIZA API-GET (DATA DE LA API CON LAS MONEDAS)
+  useEffect(() => {
+    dispatch(apiGet(currency, sort, chPercent));
+  }, [currency, sort, chPercent]);
+
+  // USE SELECTOR DE LA CRIYPTO-LIST
+  const criptoList = useSelector(apiMainSelector);
+
+
+
+
   // USESTATE SEARCH - catch de onChange from Searcher component
   const [search, setSearch] = useState("");
 
   // SEARCH FUNCTION - Filtercoin will be mapped
+
   const filterCoins = criptoList.filter(
     (coin) =>
       coin.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -80,7 +102,9 @@ const TableGrid = ({ criptoList }) => {
         </div>
       </div>
       <div id="HP-Grid-2">
-        <div id="HP-Grid-2-1"><Start/></div>
+        <div id="HP-Grid-2-1">
+          chau
+        </div>
         <div id="HP-Grid-2-2">chau</div>
       </div>
     </div>
