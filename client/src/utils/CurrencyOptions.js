@@ -16,9 +16,11 @@ const CurrencyOptions = () => {
 
   return (
     <>
-        {types.map((type, index) => (
-            <li key={index} onClick={handleClick} className="dropdown-item">{type}</li>
-        ))}
+      {types.map((type, index) => (
+        <li key={index} onClick={handleClick} className="dropdown-item">
+          {type}
+        </li>
+      ))}
     </>
   );
 };
