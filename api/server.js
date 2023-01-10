@@ -9,6 +9,7 @@ const app = express();
 const db = require("./db/index.db");
 // const models = require("./models/index.model");
 const routes = require("./routes/index.routes");
+const port = 3001
 
 // MIDDLEWARES
 app.use(morgan("dev"));
@@ -33,7 +34,7 @@ db.sync({ force: false })
     console.log("connected to db");
   })
   .then(() => {
-    app.listen(3001, () => {
+    app.listen(port, () => {
       console.log("listening Port 3001");
     });
   })
